@@ -1,0 +1,244 @@
+Source: Neuroscience Online: An Electronic Textbook for the Neurosciences
+URL: https://nba.uth.tmc.edu/neuroscience/s1/chapter14.html
+License: Open Access
+
+14.1 Introduction to Neuropeptides and Nitric Oxide
+
+
+
+Classical neurotransmitters (e.g., glutamate and ACh) work by the directional transfer of information between presynaptic release sites and postsynaptic clusters of receptors. The process is generally well organized spatially with some, but very limited, "spill-over" of transmitter between neighboring synapses. The situation is quite different for transmission mediated by neuropeptides and nitric oxide (NO). These molecules ignore directionality of information flow and instead influence a volume of area from their point of release. This feature is loosely analogous to the release of peptide hormones into the blood stream, which can be carried to distant sites to produce their effects. For example, NO can be produced in a postsynaptic neuron and diffuse back to the presynaptic neuron or to other neighboring neurons affecting the subsequent release of transmitter. This property is termed retrograde transmission, since the signal travels in the opposite direction (post- to pre-) as compared to the classical directionality of neurotransmission.
+
+
+
+14.2 Neuropeptides
+
+
+
+Many neuropeptides were originally described as hormones (e.g., somatostatin and cholecystokinin), although once characterized they were subsequently also found in neurons within the CNS. Neuropeptides typically produce neuronal responses with slow onset and long duration (Figure 14.1), and every characterized neuropeptide receptor falls into the GPCR (G-protein coupled receptor) class. For comparison, Figure 14.1 shows typical responses produced by the action of a classical neurotransmitter (glutamate) acting at an ionotropic receptor and a neuropeptide. An action potential elicited in neuron 1 (in green), a glutamate releasing neuron, produces the fast (5 msec) EPSP typical of glutamate mediated synaptic transmission. In contrast, an action potential elicited in neuron 2 (purple) that releases neuropeptide produces a slow onset (5 sec to peak) and long-duration (10 sec) EPSP. These slow EPSPs are typical of neuropeptide actions since all neuropeptide receptors are G-protein coupled.
+In addition, many neuropeptides do not produce an obvious electrophysiological change in the postsynaptic neuron. For example, an action potential in neuron 3 (Figure 14.1; pink) produces no response in the postsynaptic neuron even though one can confirm through other means that neuropeptides were released. However, changes have occurred in the postsynaptic neuron as revealed in the example shown in the panels labeled "C". If one first measures the glutamate response (C1) by stimulating neuron 1, a typical response is seen. Stimulation of neuron 3 produces no response (C2) as before. However, if neuron 1 is stimulated again after the stimulation of neuron 3, the EPSP measured in the postsynaptic neuron is enhanced (C3) (the original EPSP is the solid line and the EPSP following neuron 3 stimulation is the dashed line). Thus, the neuropeptide released from neuron 3 altered the postsynaptic neuron's response to another neurotransmitter. These neuropeptides are said to be neuromodulators since their effects are to potentiate or depress the effects of a second transmitter. Other examples of such heterosynaptic plasticity are described in Chapter 7, Part 2.
+
+
+
+14.3 Classification of Peptides by Families
+
+
+
+Neuropeptides can be grouped into families based on similarities in their amino acid sequences (Tables I and II).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+For example, opiates are grouped as a family due to the identical amino acid sequence Tyr-Gly-Gly-Phe--(Table II) found at the N-terminus of each.
+
+
+
+
+
+
+
+
+ 	Amino Acid Sequence
+
+
+
+ 	Tyr-Gly-Gly-Phe-Leu-OH
+
+
+
+ 	Tyr-Gly-Gly-Phe-Met-OH
+
+
+
+ 	Tyr-Gly-Gly-Phe-Met-Thr-Ser-Glu-Lys-
+
+
+
+
+ 	Tyr-Gly-Gly-Phe-Leu-Arg-Arg-Ile-Arg-
+
+
+
+
+
+
+14.4 Biosynthesis and Regulation
+Neuropeptides are derived from larger precursors by proteolytic processing. They are all initially synthesized within the soma (Figure 14.2). Precursors are initially formed by translation on polyribosomes attached to the endoplasmic reticulum near the cell body. From there, they progress through the Golgi apparatus where further modifications take place, including glycosylation. They are then packaged into secretory granules that are transported to terminals by fast axonal transport. Fast is a relative term, however, and due to the relatively long distances that some neuropeptides must travel. Replenishing the pool of releasable neuropeptide might require many hours. During the transport to the nerve terminal, proteases that are packaged within the vesicle begin to cleave the precursor neuropeptide into its final mature form. This processing is essential for the activation of the neuropeptides since the precursors are biologically inactive. At least three types of processing occurs within the vesicles (Figure 14.2; click boxes for more details). First, an endopeptidase cleaves the precursor to generate two new products (First box in axon). For many precursors this cleavage occurs after basic residues (like Lys and Arg) and is accomplished by trypsin-like proteases. Next, although not for every neuropeptide, a carboxypeptidase cleaves the basic residues from the C-terminus of the new peptide (Second box in axon). Finally, a third enzyme converts the COOH (carboxy) group of a Gly residue, found at the C-terminus of many neuropeptides, to an NH_2 (amide) group to produce the mature, active form of the neuropeptide.
+
+
+
+14.5 Multiple Mechanisms are Utilized to Produce the Diversity of Neuropeptides
+
+
+
+Most proteins are produced from mRNA molecules that are spliced from precursor RNAs into their final forms in the nucleus. Differential splicing is one way that a neuron uses to diversify the production of different types of neuropeptides. One well-known example is the substance P mRNA that normally also includes mRNA encoding substance K. The substance K portion of the mRNA can be differentially spliced out so that the resulting mRNA can produce only substance P (click on box over nucleus in Figure 14.2)
+Neuropeptides are produced from a longer precursor protein by proteolytic processing. An excellent example is the opioid family of peptides (e.g., the processing of proopiomelanocorticotropin, POMC and Enkephalin; see Figure 14.3). As noted, the proteolytic processing takes place within the transport vesicles and most often occurs by cleaving the precursor on the N-terminal side of basic residues (arginine and lysine), although other cleavage sites have also been identified. In some instances, such as the Enkephalin precursor protein, multiple copies of the same final bioactive peptide are present. The one precursor molecule shown at the top of Figure 14.3 contains six copies of Met-enkephalin (ME) and one copy of Leu-enkephalin (LE).
+
+
+
+Diversity can thus be generated by altering the sequence of the cleavage sites by differential splicing, by producing and/or packaging different proteases (recognizing different sequences for cleavage) into the transport vesicles, or by hiding a proteolytic site by post-translational modifications. An example of the latter is that a specific cleavage site might be hidden by the addition of a carbohydrate side chain that sterically blocks the protease from having access to that site. Another common finding is that a single precursor molecule will contain several different neuropeptides (see Figure 14.3) and therefore the types of processing that occur ultimately determines which neuropeptide is released by the neuron. The POMC precursor protein can be cleaved to form ACTH (orange) and β-lipoprotein (light blue) that each can be further cleaved to generate additional bioactive neuropeptides (Figure 14.3). For example, the β-lipoprotein (light blue) can be further cleaved into both γ-lipoprotein (green stripes) and β-endorphin (dark blue). Again, depending on the processing that takes place, the same precursor protein can be modified to produce neuropeptides with dramatically different biological responses.
+
+
+
+14.6 Release
+Peptides are released by calcium-dependent exocytosis with some important differences from the release of classical neurotransmitters. Typically, vesicles releasing neuropeptides are much larger than those that contain small molecule neurotransmitters (e.g., glutamate) and do not require a presynaptic specialization for release (see the electron micrograph in Figure 14.4). In contrast to the small vesicles that contain glutamate, the large vesicles do not appear docked at the membrane. This observation is consistent with the idea that small molecule neurotransmitters produce brief, local effects (at synaptic connections), whereas neuropeptides produce slow, long-lasting effects often encompassing a significant area surrounding the site of release. Also, recall that since neuropeptides are synthesized in the cell soma and not locally at the synapse, if their supply is exhausted from sustained release it might take several hours to replenish the releasable pools. For example, a motor neuron, with its cell body in the spinal cord and the synapse in the foot, has an axon as long as one meter. Utilizing fast axonal transport it would potentially take more than a day for a newly synthesized neuropeptide to arrive at this synapse from the soma. It should also be evident that endogenous pain-killing neuropeptides, like beta-endorphin, could be "used-up" in times of persistent stimulation leading to situations where pain can no longer be controlled by endogenous mechanisms.
+
+A typical mature neuron will often release one small molecule neurotransmitter and one or more neuropeptides (as in the example shown in Figure 14.4). If more than one neuropeptide is released they most often come from the same single precursor molecule. An example is the co-release of both ACh and calcitonin gene-related peptide from spinal motor neurons. CGRP activates adenylate cyclase, raising cAMP levels, and potentiates the force of contraction produced by ACh activation of the nicotinic ACh receptor. In this case, the neuropeptide is modulatory as described in Figure 14.1. However, in this instance, the effect potentiates muscle contraction instead of increasing the magnitude of the EPSP. In both examples, the potentiated response is due to increased sensitivity of the system to a constant amount of released neurotransmitter.
+
+
+
+14.6 Termination of Action
+
+
+
+Neuropeptides are slowly removed from the extracellular space; a feature which also contributes to their relatively long lasting effects. Inactivation occurs by both diffusion and breakdown by extracellular proteases. No evidence has been found for peptide re-uptake as a means of terminating their action.
+
+
+
+
+
+14.7 Receptors are all G-protein Linked
+
+
+
+All known neuropeptide receptors produce their effects by altering the levels of intracellular second messengers. These receptors are seven transmembrane spanning proteins that are linked through G proteins (GPCRs) to alter the activation of other cellular enzymes. This property is consistent with neuropeptides inducing a slower response and is well suited for a modulatory role. One important distinction between small and neuropeptide molecule transmitters is that neuropeptide receptors have a high affinity for binding (nanomolar) as opposed to micro- or millimolar affinities measured for small molecule neurotransmitters (like glutamate). As neuropeptides are not released directionally into the confined volume of a synapse, their concentrations do not achieve very high levels and the receptors then must have high affinities to react to these small concentrations. This high affinity slows the dissociation of the neuropeptide from its receptor and also contributes to the persistent effects of these molecules.
+
+
+
+14.8 Nitric Oxide (NO)
+
+
+
+Nitric oxide has gained widespread attention as the founding member of a new class of gaseous messenger molecules. NO is the active molecule that sublingual nitroglycerin produces to increase vasodilation in the relief of angina. Other important biological effects of NO are now recognized. For example, in the nervous system, NO is important in the regulation of cerebral blood flow, in the modulation of neurotransmission, and in toxicity associated with various pathologic states.
+
+
+
+
+
+14.9 Characteristics of NO
+
+
+
+Summary of NO's Properties
+
+
+
+
+* Gas that freely diffuses through membranes
+
+
+
+* Short-lived with a half-life measured in seconds
+
+
+
+* Highly reactive free radical
+
+
+
+* Toxic at high concentrations
+
+
+
+
+
+
+NO is a short-lived gas not to be confused with the relatively stable anesthetic gas nitrous oxide (laughing gas). NO is actually a free radical and is therefore a highly reactive compound. Some of its toxic effects are likely due to NO reacting with superoxide to produce the destructive radical peroxynitrate. NO is considered an unconventional neurotransmitter because it is not released by exocytosis and its action does not occur through conventional receptor molecules.
+
+
+
+As mentioned previously, the typical description of neuronal communication considers transmission to be unidirectional. A presynaptic neurotransmitter is released that produces changes in the postsynaptic neuron. Several compounds (like neuropeptides and NO) produced in postsynaptic neurons diffuse into the local environment and affect the surrounding cells. Since NO is a freely diffusible gas it has the potential to travel quickly in any direction from its point of production. For example, if produced in a postsynaptic cell because of glutamate receptor stimulation, NO could be released into the local environment and send a signal back to the presynaptic neuron (Figure 14.5). This type of activity is referred to as retrograde signaling since the signal travels in a retrograde direction from the postsynaptic to the presynaptic neuron.
+
+
+
+
+
+
+
+Figures 14.5, 14.6, and 14.7 summarize the main aspects of NO synthesis. In this example, glutamate is released from the presynaptic terminal that binds to NMDA receptors on the postsynaptic membrane, causing them to open and permitting Ca^2+-influx. The Ca^2+ activates calmodulin which binds to and activates the enzyme nitric oxide synthase (NOS). Using arginine as a substrate, NOS produces NO and a second reaction product citrulline. The NO is then free to diffuse into the environment and interact with the presynaptic terminal which initially released the glutamate or any other cell in the local environment. Recognize that any process that elevates intracellular Ca^2+ will potentially activate NOS. Glutamate activation of NMDA receptors is just one well-documented example.
+14.10 Synthesis by Nitric Oxide Synthase (NOS) and Release
+
+
+
+NO is produced by the enzyme nitric oxide synthase (NOS). This enzyme is found in a subpopulation of neurons (1-2% of neurons in cortex) and is found in most all endothelial cells. At least one form of NOS in these cells is dependent on calcium and calmodulin for activation as indicated in Figures 14.5, 14.6, and 14.7. It also contains cofactors similar to cytochrome P-450. These cofactors are NADPH (nicotinamide adenine dinucleotide phosphate, FAD (flavin adenine mononucleotide) and FMN (flavin mononucleotide). These cofactors are essential for the transfer of electrons that produces the unstable and short-lived product NO. The substrate in this reaction is the common amino acid arginine and the products are citrulline and NO (Figure 14.5). Because of NO's short lifetime it is extraordinarily difficult to measure directly. However, in experimental preparations, there is an excellent correlation between the application of NMDA, which increases intraneuronal Ca^2+ and activates NOS, with the production of the additional product of NOS's enzymatic activity, citrulline (see Figure 14.8). Citrulline production is a reliable indicator of NO production. It is also possible to block the production of citrulline (and NO) by feeding cells the non-metabolizable substrate for NOS termed methyl arginine (Figure 14.9), and such compounds have been used to reduce the production of NO and terminate its biological effects.
+
+
+
+
+
+
+
+14.11 "Receptors" for NO
+One of the main targets for NO appears to be the enzyme guanylyl cyclase. This discovery was made indirectly by monitoring the accumulation of the NOS product citrulline while also monitoring for the production of cGMP, the product of the enzyme guanylyl cyclase (Figures 14.8 and 14.9). In this experiment NMDA was added to a neuronal preparation to activate NOS. NOS utilizes arginine as a substrate to produce NO and as mentioned, if a non-hydrolyzable analog like methyl-arginine is added to the system, citrulline and cGMP accumulation were found to terminate in the same dose-dependent fashion. These strong correlations led to the discovery that guanylyl cyclase is a main NO target.
+
+
+
+
+
+Guanylyl cyclase is an unusual enzyme because it has a heme ring with an associated iron molecule as part of its structure. NO activates this enzyme by binding to iron in the heme, initiating production of cyclic GMP from GTP (Figure 14.10) through conformational changes in the enzyme. cGMP then activates a cGMP-dependent protein kinase and other enzymes described below. The spectrum of effects produced by the activation of cGMP-dependent protein kinase are only now becoming understood.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+14.12 Biological Effects of NO
+
+
+
+NO produces a wide variety of biological effects. Unfortunately, we are particularly ignorant of NO's role in modulating cellular processes in the nervous system. NO's role in regulating the vasculature is well documented and it appears to play a similarly important role in the nervous system.
+
+
+
+
+
+14.13 Vasodilator
+
+
+
+
+
+
+
+Under normal circumstances, NO contributes to the control of blood flow through the cerebrovasculature. A rapid feedback mechanism necessarily exists to supply more active areas of the brain with the necessary nutrients. This mechanism is necessary because of the brain's feeble reserve of energy stores. NO is produced in neurons containing NOS that are undergoing sustained activity. These conditions favor activation of NMDA receptors, which is known to cause NO production. NO diffuses from these localized areas of high neuronal activity to the surrounding microvasculature (Figure 14.11) causing vasodilatation and increased blood flow.
+
+
+
+
+
+Although the exact mechanisms by which NO produces vasodilatation are not yet defined, it is known that activation of cGMP-dependent protein kinase in smooth muscle cells causes a relaxation of the vessels. Since one of NO's main targets is guanylyl cyclase (which produces cGMP and activates cGMP-dependent protein kinase), it is presumed that one major pathway for NO's vasodilatory actions is through cGMP-dependent protein kinase. Activation of this kinase leads indirectly to decreased Ca^2+-levels in the smooth muscle cells and subsequently to the dephosphorylation of the myosin contractile apparatus which causes relaxation (Figure 14.12). In smooth muscle cells, NO also appears to directly hyperpolarize cells possibly by activating K^+-channels, leading to the secondary closure of Ca^2+ channels which also produces muscle relaxation. In conclusion, one of NO's main functions appears to be integrating the level of neuronal activity with local alterations in cerebral blood flow to maintain adequate perfusion of metabolically active tissue.
+14.14 Neuromodulator
+
+
+
+NO is also thought to act as a locally diffusible messenger. It is produced by any action that elevates Ca^2+ in cells containing NOS, such as glutamate stimulation of NMDA receptors. Through subsequent activation of guanylyl cyclase and production of cGMP, NO production influences a variety of secondary processes. These include direct modulation of ion channels, stimulation of cGMP-dependent protein kinase, and both up-regulation or down-regulation of cAMP-phosphodiesterase. Downstream effects are then numerous and include up and down regulation of Ca^2+ channels, increased excitability (increases neuronal firing rate), increased or decreased neurotransmitter release, and changes in neuron morphology.
+
+
+
+
+
+14.15 Toxicity
+
+
+
+NO in excess is toxic to cells. However, a paradox exists for NO toxicity. Cells that produce high levels of NO are resistant to its toxic effects. For example, NO toxicity is used by macrophages and neutrophils as a mechanism to kill tumor cells and bacteria. However, neither cell type producing NO is susceptible to its damaging effects. This finding is also true for neurons in the central nervous system. Excess glutamate induces neurotoxicity in the brain and is thought to be the primary cause of neuronal death in diseases such as Huntington's or Alzheimer's or after acute stroke or trauma. Excess production of NO is thought to play some role in this neuronal loss due to its toxicity when produced in excess. Interestingly, cells that stain positive for the enzyme NOS are spared in degenerating areas of the brain affected by these diseases. The resistance of these cells appears to be similar to the resistance of the immune cells described above.

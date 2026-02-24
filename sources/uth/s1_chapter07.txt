@@ -1,0 +1,79 @@
+Source: Neuroscience Online: An Electronic Textbook for the Neurosciences
+URL: https://nba.uth.tmc.edu/neuroscience/s1/chapter07.html
+License: Open Access
+
+7.1 Synaptic Plasticity
+
+
+
+Historically, it was generally thought that the role of the synapse was to simply transfer information between one neuron and another neuron or between a neuron and a muscle cell. In addition, it was thought that these connections, once established during development, were relatively fixed in their strength, much like a solder joint between two electronic components. One exciting development in neurobiology over the past forty years is the realization that most synapses are extremely plastic; they are able to change their strength as a result of either their own activity or through activity in another pathway. Many think that this synaptic plasticity is central to understanding the mechanisms of learning and memory.
+
+
+
+
+
+There are two general forms of synaptic plasticity, intrinsic and extrinsic. Intrinsic mechanisms, also known as homosynaptic mechanisms, refer to changes in the strength of a synapse that are brought about by its own activity. (Homo from the Greek meaning the same.) Extrinsic plasticity, or heterosynaptic plasticity, is a change in the strength of a synapse brought about by activity in another pathway.
+Homosynaptic Plasticity. There are two types of intrinsic or homosynaptic plasticity, synaptic depression and synaptic facilitation. Synaptic depression and facilitation are not always found at the same synapse. Some synapses exhibit one but not the other, whereas some synapses exhibit both. Figure 7.1B illustrates homosynaptic plasticity at the synapse between a 1A afferent fiber and a spinal motor neuron. An action potential in the sensory neuron produces an EPSP in the motor neuron. A second action potential in the sensory neuron, 200 msec after the first, produces an EPSP that is smaller than that produced by the first action potential. This phenomenon is called synaptic depression. The efficacy of synaptic transmission is not constant; it varies depending upon the frequency of stimulation. The mechanisms of synaptic depression vary but one common mechanism is depletion of the available transmitter. The second of two action potentials will release less transmitter because less transmitter is available to be released. (See Figure 7.2A)
+
+
+
+
+
+Figure 7.1C illustrates the second form of homosynaptic plasticity, synaptic facilitation. This particular example is known as paired-pulse or twin-pulse facilitation. Two action potentials in the presynaptic cell produce two EPSPs in the postsynaptic cell. The first action potential produces a 1 mV EPSP, but the second action potential, which occurs about 20 msec after the first, produces an EPSP that is larger than the EPSP produced by the first. In this example, it is twice as large as the first one. This doubling of the EPSP represents the synaptic facilitation. The net EPSP is 3 mV. Through the process of temporal summation the second EPSP (2 mV) adds to the amplitude of the first EPSP (1 mV).
+One mechanism contributing to twin pulse facilitation is residual calcium. An action potential leads to the opening of Ca^2+ channels and the influx of Ca^2+, which leads to the release of transmitter. Now consider the fate of the calcium after the first action potential (Figure 7.2B). Ca^2+ levels will decline back to their initial level, but this recovery will not occur instantaneously. Thus, if a second action potential is initiated at a time during which the calcium has not yet recovered to its basal level, the calcium influx associated with the second spike will add to the "residual calcium" that is left over from the first. The net effect is that the total concentration of calcium will be greater after the second spike than it was after the first, and more transmitter will be released.
+
+
+
+Another intrinsic type of synaptic plasticity is called post-tetanic potentiation (PTP). It is an extreme example of facilitation defined as a relatively persistent (minutes) enhancement of synaptic strength following a brief train of spikes (a tetanus).
+7.2 Heterosynaptic Forms of Synaptic Plasticity
+Just as there are two types of homosynaptic plasticity, there are two types of heterosynaptic plasticity. Before discussing heterosynaptic plasticity, it is useful to review the types of synapses that are present in the central nervous system. Three broad categories of synapses are found in the central nervous system. (See also Chapter 8)
+
+
+
+
+
+Axosomatic synapses are synapses that are made onto the soma or cell body of a neuron.
+
+
+
+Axodendritic synapses, probably the most prominent kind of synapses, are synapses that one neuron makes onto the dendrite of another neuron.
+
+
+
+Axoaxonic synapses are synapses made by one neuron onto the synapse of another neuron. Axoaxonic synapses mediate presynaptic inhibition and presynaptic facilitation.
+
+The phenomenon complementary to presynaptic inhibition is presynaptic facilitation. M1 is capable of increasing the strength of the synaptic pathway. As a result of the activation of a second messenger cascade by M1, an action potential in the presynaptic terminal leads to a greater amount of Ca^2+ influx, and therefore more transmitter is released.
+
+7.3 Long-Term Potentiation (LTP)
+
+
+
+A very enduring form of synaptic plasticity is called long-term potentiation (LTP). It can have both homosynaptic and heterosynaptic components. An electric shock (test stimulus) to afferent fibers produces an EPSP (Figure 7.6). If the pathway is repeatedly stimulated (e.g., every minute), the amplitude of EPSP is constant.  A tetanus produces post-tetanic potentiation (PTP) that dies away after several minutes. What is left is a very enduring enhancement of the EPSP. There is excitement about LTP because it is the kind of mechanism necessary to store memory (Figure 7.7).
+The NMDA-type receptor is critical for some forms of LTP, in particular LTP at the CA3-CA1 synapse in the hippocampus. The postsynaptic spines of CA1 neurons have two types of glutamate receptors; NMDA-type glutamate receptors and the AMPA-type glutamate receptors (Figure 7.8). Both receptors are permeable to Na^+ and K^+, but the NMDA-type has two additional features.
+
+
+
+
+* First, in addition to being permeable to Na^+, it also has a significant permeability to Ca^2+.
+
+* Second, this channel is normally blocked by Mg^2+.
+
+
+
+
+
+
+Even if glutamate binds to the channel and produces a conformational change, there is no efflux of K^+ or influx of Na^+ or Ca^2+ because it is "plugged up" by the Mg^2+ (Figure 7.8A). Thus, a weak test stimulus will not open this channel because it is blocked by Mg^2. A weak test stimulus will produce an EPSP, but that EPSP will be mediated by the AMPA receptor.
+
+
+
+Now consider the consequences of a tetanus (Figure 7.8B). Because of the tetanus, there will be spatial and temporal summation of the EPSPs produced by the multiple afferent synapses on the common postsynaptic cell (Figure 7.6). Consequently, the membrane potential of the postsynaptic neuron will become very depolarized. Because the inside of the cell becomes positive, the positively charged Mg^2+ is "thrust" out of the channel (Figure 7.8B). Ca^2+ then enters the spine through the NMDA receptor. That Ca^2+ activates various protein kinases, which then trigger long-term changes in synaptic strength.  One of the long-term changes involves the insertion of additional AMPA receptors (Figure 7.8C).  Consequently, the glutamate released by a test stimulus after a LTP-inducing tetanus will open a greater number of channels and thereby produce a larger (potentiated) EPSP (Figure 7.8C).  In addition to an increase in the number of postsynaptic AMPA receptors, there is evidence that a greater amount of transmitter is released from the presynaptic neurons.  The combination of the presynaptic and postsynaptic effects would act synergistically to increase the size of the synaptic potential in the postsynaptic neuron.
+
+
+
+7.4 Summary
+A given postsynaptic neuron receives synaptic input from a number of different sources. There are the traditional type of axosomatic and axodendritic synapses. These can be either excitatory or inhibitory. In addition, the synaptic responses can be mediated by both ionotropic and metabotropic receptors. The presynaptic cells can be modulated through presynaptic inhibition and presynaptic facilitation. Consider that any one postsynaptic cell makes and receives 10,000 connections with other cells and that this module can be recapitulated in each of the billions of cells in the nervous system. It is this enormous pattern of synaptic connections and the plasticity that occurs at each one of these synapses which makes the nervous system so extraordinary.
+
+
+
+It is very difficult to overestimate the importance of synaptic transmission. It is critical to the basic functioning of the nervous system and appears to be critical in learning and memory. Also, changes in synaptic transmission seem to be central to understanding a number of neurological disorders such as myasthenia gravis and Parkinson's disease. Synaptic transmission is central to understanding mental diseases such as schizophrenia, anxiety, and depression. A major theme of neuroscience is to identify the specific transmitter systems involved in these brain diseases and design appropriate interventions. Finally, most of the psychoactive drugs function by affecting some aspects of synaptic transmission.
