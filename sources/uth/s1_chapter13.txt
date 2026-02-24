@@ -1,0 +1,262 @@
+Source: Neuroscience Online: An Electronic Textbook for the Neurosciences
+URL: https://nba.uth.tmc.edu/neuroscience/s1/chapter13.html
+License: Open Access
+
+13.1 Introduction and Review
+Amino acid transmitters provide the majority of excitatory and inhibitory neurotransmission in the nervous system. The sensory-to-motor neuron connection in the spinal cord that controls the knee-jerk reflex is an excellent starting point for illustration. Figure 13.1 shows a monosynaptic connection in the spinal cord between the sensory neuron (in green) and the motor neuron innervating the extensor muscle (in blue).
+
+
+
+A single action potential evoked in the sensory neuron produces an excitatory postsynaptic potential (EPSP) in the extensor motor neuron (Figure 13.1) of about 1 mV. The same sensory neuron also makes a synaptic connection with an interneuron (in black) in the spinal cord that then synapses on the motor neuron (in red) innervating the flexor muscle. An action potential elicited in the interneuron produces an inhibitory postsynaptic potential (IPSP) in the flexor motor neuron. Recall that many EPSPs are needed to drive the motor neuron's resting potential to the threshold to generate an action potential. These are the processes of temporal and spatial summation. The neurotransmitters and the receptors that mediate these and other excitatory and inhibitory responses are the focus of this section. Excitatory transmission (the production of EPSPs) is mediated largely by the acidic amino acid glutamate. Inhibitory neurotransmission (IPSPs) is mediated primarily by glycine in the spinal cord, and a metabolite of glutamate called gamma-aminobutyric acid (GABA) in the brain.
+
+
+
+13.2 Spatial and Morphological Distinctions between Excitatory and Inhibitory Inputs
+
+
+
+
+
+Functionally, the location of these synaptic contacts has profound influences on the postsynaptic neuron. In general, the further from the cell body, the more the EPSP is attenuated by the passive properties of the membrane (these potentials are not propagating action potentials; they are synaptic potentials). Therefore, for neurons lacking regenerative processes in their dendrites, EPSPs that are far from the point of action potential generation (the cell soma and axon hillock) attenuate to a greater degree than IPSPs which are generated closer to the neuron's soma. Due to this spatial arrangement and the relatively small size of each EPSP (1 mV), many distant EPSPs must summate to cause the initiation of an action potential. In contrast, fewer local IPSPs on the cell soma are required to inhibit production of action potentials. On a typical cortical neuron, one might find 10,000 axodendritic excitatory synapses and only 10-50 axosomatic inhibitory synapses.
+
+
+
+13.3 Structure of Amino Acid Transmitters
+
+
+
+Initially, amino acids were not considered viable candidates for neurotransmitters since they are ubiquitous cellular constituents and are required for protein synthesis. Also, unlike the specific enzymes in neurons that synthesize ACh and catecholamines, enzymes that synthesize glutamate, aspartate and glycine are not unique to neurons. Whereas antibodies to choline acetyltransferase can be used to identify neurons as cholinergic, no such markers are available for neurons that use the amino acids as transmitters. Nevertheless, it is now known that amino acids constitute the major group of substances used for generating excitatory and inhibitory synaptic potentials in the CNS. Amino acids used for synaptic transmission are compartmentalized. For example, glutamate to be used as a neurotransmitter is compartmentalized from metabolic glutamate used for protein synthesis by packaging the transmitter into synaptic vesicles for subsequent Ca^2+-dependent release.
+
+
+
+13.4 Biosynthesis of Amino Acid Neurotransmitters
+
+
+
+Amino acid neurotransmitters are all products of intermediary metabolism with the exception of GABA. Unlike all the other amino acid neurotransmitters, GABA is not used in protein synthesis and is produced by an enzyme (glutamic acid decarboxylase; GAD) uniquely located in neurons. Antibodies to GAD can be used to identify neurons that release GABA.
+
+
+
+
+
+13.5 Glutamate and Aspartate
+Glutamate and aspartate are products of the Kreb's cycle, and both have excitatory effects in the CNS. They are produced in the mitochondria, transported into the cytoplasm, and packaged into synaptic vesicles (Figure 13.4). Specific high-affinity enzymes are responsible for packaging glutamate into vesicles.
+
+
+
+The actions of glutamate are terminated by high-affinity uptake systems in neurons and glia (represented by red cylinders in the neuron and glia membranes). Under normal circumstances most uptake is back into the neuron and this glutamate can immediately be pumped into vesicles for subsequent release. When neuronal activity is high, extracellular glutamate concentration exceeds the capacity of neuronal uptake. At this point, uptake systems in glial cells help absorb the excess glutamate. However, glutamate is not permeable to the plasma membrane. To recycle the glutamate taken up into glial cells, an enzymatic reaction catalyzed by glutamine synthase produces glutamine from glutamate (Figure 13.4). Glutamine is freely permeable to the glial and neuronal plasma membranes and diffuses back into the neuron. The neuronal enzyme glutaminase then metabolizes glutamine into glutamate where it can then be packaged into synaptic vesicles for another round of release (Figure 13.4).
+
+
+
+13.6 Glycine
+Glycine is the main neurotransmitter that mediates the inhibitory actions of spinal cord interneurons. It is also present in lower amounts throughout the nervous system. Glycine is synthesized from serine in the mitochondria (Figure 13.5). The reaction is catalyzed by the enzyme serine transhydroxymethylase (Figure 13.5; click on box). Like glutamate, high-affinity uptake systems remove glycine from the synaptic cleft, which can then be repackaged into vesicles.
+
+
+
+The binding of glycine to its receptor on postsynaptic neurons is blocked by the poison strychnine, thus blocking glycine's inhibitory actions (Figure 13.5). The block of inhibition leads to hyperexcitation and typically a patient with strychnine poisoning asphyxiates due to an inability to relax the diaphragm. More details on the nature of glycine receptors are provided later in this chapter. (You can move forward to it now, but be aware that you are advancing FORWARD.)
+
+13.7 GABA
+GABA mediates the majority of inhibitory synaptic actions in the CNS. GABA is synthesized from glutamate in a reaction catalyzed by glutamic acid decarboxylase (GAD; Figure 13.6). Antibodies to GAD can be used to identify GABAergic neurons. Like the other amino acid transmitters, GABA's actions are terminated by high affinity uptake systems in neurons and glia. Neuronal uptake permits immediate repackaging into vesicles for release. Compared with glutamate, a more elaborate set of reactions is necessary to return GABA to the neuron when it is taken up by glial cells. Some of these enzymes are shared with those for returning released glutamate to neurons described in Figure 13.4. GABA is first converted back into glutamate by the mitochondrial enzyme GABA transaminase (GABA-T; Figure 13.6; click on box) using the -COOH group from alpha-ketoglutarate. This pathway is sometimes referred to as the "GABA shunt". The glutamate is then converted to glutamine by the enzyme glutamine synthase and glutamine diffuses back into the neuron. Finally, glutaminase converts glutamine into glutamate, which can again serve as a substrate for GAD, completing the cycle.
+
+
+
+
+
+
+
+
+
+
+
+13.8 Ca^2+-Dependent Release
+
+
+
+All of these amino acid neurotransmitters are released by Ca^2+-dependent exocytosis at presynaptic specializations as discussed in Chapter 8, Part 7 and Chapter 10, Part 4. All vesicles (both small molecule and neuropeptide) also contain ATP that is co-released when these vesicles fuse with the membrane. ATP and its degradation product adenosine are themselves neurotransmitter molecules (termed purinergic transmission) that can also modify the pre- or postsynaptic cell's response if the appropriate receptors are present. For example, adenosine is a potent inhibitor of neurotransmitter release from presynaptic terminals.
+
+
+
+13.9 Receptors for Amino Acid Neurotransmitters
+
+
+
+Receptors for each of the amino acid neurotransmitters can either directly open an ion channel (ionotropic) or couple to a G-protein (G-protein coupled receptor; GPCR) except for glycine. There is no known GPCR for glycine and all of glycine's effects are mediated through an ion channel permeable to Cl^-. In contrast, glutamate and GABA can produce fast responses by directly opening ion channels and can produce slow responses by activating receptors coupled to G-proteins. Examples of ionotropic receptors and GPCRs are compared in Figures 13.7 and 13.8, respectively.
+
+
+
+
+
+13.10 Glutamate Receptors
+
+
+
+There are at least three distinct types of glutamate receptors. Two are ionotropic since glutamate binding directly opens an ion channel and the other is a GPCR, producing alterations in intracellular messengers (Figures 13.7 and 13.8). These three distinct types of glutamate receptors have been characterized by using agonists that specifically activate each type. The agonists and the subset of glutamate receptors they activate are termed:
+
+
+
+
+* NMDA (N-methyl-D-aspartate, a synthetic compound that acts as an agonist for this particular glutamate receptor subtype),
+
+
+
+* non-NMDA (also known as kainate/AMPA receptors since these agonists activate this receptor subtype), and
+
+
+
+* G-protein coupled glutamate receptor.
+
+
+
+
+
+
+
+Ionotropic glutamate receptors open channels that cause the cell to depolarize and are therefore excitatory (driving the membrane potential towards firing an action potential). The reversal potential (near 0 mV) of the EPSP indicates that glutamate opens receptors selectively permeable to cations (Na^+, K^+, and Ca^2+).
+
+
+
+Opening of non-NMDA receptors causes the majority of the excitatory postsynaptic potentials (EPSPs) in the nervous system. This receptor is mainly permeable to Na^+ and K^+ (Figure 13. 9). The structure of non-NMDA receptors loosely resembles the nicotinic ACh receptor, although glutamate receptors have some unique features. Four subunits, each having only three membrane spanning segments (as opposed to four for the nicotinic ACh receptor), combine to produce the functional receptor. Many different subunit isoforms have been cloned and characterized and mixing different subunits can significantly alter the properties of the mature non-NMDA receptor. As one example, some subunit mixtures are permeable to Ca^2+ as well as Na^+ and K^+. Although it is premature to dwell on these details, future development of drugs that bind to specific glutamate receptor subtypes will find important clinical applications.
+
+
+
+
+
+
+
+NMDA receptors are unique in the nervous system and exhibit two important characteristics. First, they have a high permeability to Ca^2+ (although they are also permeable to Na^+ and K^+), and when they open significant increases in the level of Ca^2+ can be detected in the neuron (Figure 13.10). Increased levels of Ca^2+ activate a wide variety of enzyme systems that alter both the short- and long-term response of the neurons (recall that activation of this receptor is required for the induction of long-term potentiation). Glycine, which is normally always present in the extracellular space, is also required for the NMDA receptor to open. Second, NMDA receptors require both ligand binding and membrane depolarization to open. The channel associated with the NMDA receptor binds Mg^2+, stopping ions from flowing through the channel (Figure 13.10). Mg^2+ can be displaced from the channel by depolarizing the membrane. This unique property imparts to the receptor the capacity to sense the membrane potential and open only when the neuron is depolarized. The ability to sense presynaptic activity (through the binding of released glutamate) and postsynaptic activity (through sensing membrane potential) means the NMDA receptor associates the two activities. This property (associativity) fulfills one of the central criteria for a molecule involved in learning. Apparently, Ca^2+-influx through the NMDA receptor initiates a set of biochemical changes so that the neuron remembers the conjoint activity and responds differently when activated in the future. Like the non-NMDA receptor, the mature NMDA receptor is constructed from a mixture of different subunits, again each having three transmembrane segments.
+
+
+
+13.11 Receptors-GABA_A and Glycine
+
+
+
+GABA and glycine ionotropic receptors are selectively permeable to Cl- (reversal potential near -70 mV). When they open, they cause the neuron to hyperpolarize and therefore drive the membrane potential away from the threshold for firing an action potential. GABA, like glutamate, also binds to and activates a GPCR. In contrast, glycine only binds to ionotropic receptors.
+
+
+
+13.12 GABA Receptors
+
+
+
+The ionotropic and G-protein coupled GABA receptors are referred to as GABA_A and GABA_B, respectively. Some of the main features of GABA_A and GABA_B receptors are as follows:
+
+
+
+
+
+
+
+
+ 	GABA_B
+
+
+
+ 	Largely Presynaptic
+
+
+
+ 	Alters Second Messengers
+
+
+
+ 	Slow Response (300-500 msec and longer)
+
+
+
+ 	Single Subunit
+
+
+
+
+
+13.13 Characteristics of GABA_A Receptor
+The GABA_A receptor is composed of five subunits that each contain four membrane spanning domains. GABA_A subunits are highly related to those of the nicotinic ACh receptor. Important differences exist to produce a channel that permits the permeation of the negatively charged Cl^- ion. Specifically, there are positively charged amino acids placed at strategic positions within the channel portion of the receptors that permit Cl^- passage. The different subunits of the GABA_A receptor are responsible for the binding of different drugs.
+
+
+
+
+* GABA binds predominantly to the alpha subunit (Figure 13.11).
+
+
+
+* Benzodiazepines (like Valium and Librium) bind to the gamma subunit.
+
+
+
+* Barbiturates (Phenobarbital and secobarbital) bind to both the alpha and beta subunits.
+
+
+
+* Picrotoxin blocks ion flow through the receptor (Figure 13.11).
+
+
+
+
+
+
+The pharmacology of GABA_A receptors is complex and clinically important. When GABA is released into the synapse, it binds to a population of the available receptors, but typically not all of them (Figure 13.12). If benzodiazepines are present, the effectiveness of GABA binding to its receptor is increased significantly (Figure 13.13). Therefore, effective doses of benzodiazepines enhance the ability of GABA to hyperpolarize the neuron by increasing the number of GABA receptors that open at a fixed concentration of GABA. Inhibition is produced by increasing the amount of Cl^- that flows into the neuron (Figure 13.12 and 13.13). Recognize that benzodiazepines themselves do not open the receptor but simply enhance GABA binding. Barbiturates also produce their sedative effects by increasing the effectiveness of GABA binding to its receptor. The naturally occurring toxin called picrotoxin is a potent inhibitor of the GABA_A receptor and works by preventing Cl^- flow through the receptor (Figure 13.11).
+
+
+
+
+
+
+
+13.14 Glycine Receptor
+
+
+
+The glycine receptor, like the GABA_A receptor also permits the influx of Cl^- into neurons and displays a reversal potential near -70 mV. This Cl^--permeable glycine receptor can be blocked by the rat poison strychnine. The mature glycine receptor is constructed from mixtures of at least two subunits each of which has four membrane spanning domains.
+
+
+
+13.15 G-protein Coupled Glutamate and GABA_B Receptors
+
+
+
+Glutamate GPCRs are members of a large family of receptors that couple with G proteins to produce their effects. These receptors like those for serotonin, norepinephrine, epinephrine, muscarinic ACh, and dopamine, produce the large majority of their effects through alterations in the activity of metabolic enzymes and not by directly opening ion channels in the membranes. All of these receptors are single polypeptides that span the membrane seven times (See Fig. 11.10. and Fig. 13.8).
+
+
+
+
+
+The glutamate GPCR's best known effects are the activation of phospholipase C which generates inositol-trisphosphate (IP_3) and diacylglycerol (DAG) from the precursor lipid phosphatidylinositol bisphosphate (See Figure 13.8). Inositol-trisphosphate binds to receptors on intracellular organelles causing the release of Ca^2+. Among several other things, increased Ca^2+ along with diacylglycerol lead to the activation of protein kinase C which produces a variety of alterations in the enzymatic machinery of the cell including the regulation of ion channels that affect the electrical properties of the neuron.
+
+
+
+The GABA_B receptor, like the glutamate GPCR, produces its effects not by directly opening ion channels, but by coupling to G-proteins and enzymes that influence metabolites within the neuron. Reported effects include alterations (either increases or decreases) in cAMP levels, increases in K^+-conductance, and decreases in Ca^2+-conductance. Some of the ion channel effects detected are due to the components of the activated G-protein binding directly to ion channels, influencing their properties (See Figure 6.5).
+
+
+
+
+
+13.16 Termination of Action
+
+
+
+Two basic mechanisms, diffusion and high affinity uptake, terminate the response to amino acid transmitters. The high affinity uptake mechanism is the most predominant. The proteins involved in transmitter uptake are related and each contains 12 membrane-spanning domains. Transporters use energy derived either from the hydrolysis of ATP or electrochemical ion gradients established across the membrane to pump the transmitters into neurons and glia. The energy-dependent nature of these receptors means that in times of metabolic stress, such as during an ischemic episode, the pumps fail and toxic levels of these transmitters build up.
+
+
+
+13.17 Clinical Manifestations of Altered Glutamate Levels
+
+
+
+The neurotransmitter glutamate is highly toxic to neurons when present for extended periods. One of the best understood clinical conditions involving glutamate is neuronal injury following stroke or trauma. Both events produce massive release of glutamate in the brain that over-stimulates glutamate receptors. The absence of energy prevents the pumps from removing glutamate from the synapse. As a consequence, the uncontrolled opening of glutamate receptors causes a large influx of Na^+ followed by water that produces swelling and a large and sustained influx of Ca^2+ that leads to hyperactivation of many calcium-dependent enzymes. The Ca^2+ influx through the NMDA receptor appears to be one of the keys to producing neuronal damage since specifically blocking activation of this receptor attenuates some of the neuronal injury following stroke. The key to minimizing damage following stroke is well-controlled reestablishment of blood flow so that ATP production is supported and homeostasis is reestablished. Clot breaking agents such as tissue plasminogen activator (tPA) are now used commonly to reestablish blood flow.
+
+
+
+Because glutamate is the major excitatory transmitter in the human brain, derangements in glutamate metabolism or receptor activation have been implicated in a wide variety of pathologic conditions. These include diseases such as Alzheimer's and Huntington's chorea.
+
+
+
+13.18 Diseases Associated with GABA
+
+
+
+One explanation for the establishment of focal epilepsy is decreased local GABA-mediated inhibition. Many facets of epilepsy can be elicited experimentally by blocking GABA receptors with the toxin picrotoxin previously described. The decrease in GABA inhibition permits cells to fire synchronously, thus producing massive local excitation and initiation of a seizure. Clinically, seizures can often be terminated by inducing a barbiturate coma. High dose barbiturates presumably potentiate GABA's inhibitory effects, preventing local hyperexcitation by hyperpolarizing the cell membranes.
+
+
+
+Mood disorders (generalized anxiety disorder) can also be controlled by drugs which potentiate GABA's inhibitory activity. Some of the most widely prescribed drugs-benzodiazepines (Librium and Valium)-produce their pharmacological effects by increasing GABA's ability to hyperpolarize neuronal membranes, thereby quieting the system. This finding suggests that some initial imbalance in the GABAergic system may underlie aspects of this disorder.

@@ -1,0 +1,1237 @@
+Source: Neuroscience Online: An Electronic Textbook for the Neurosciences
+URL: https://nba.uth.tmc.edu/neuroscience/s1/chapter12.html
+License: Open Access
+
+12.1 Introduction
+
+
+
+Monoamines (also known as "biogenic amines") include three classes of neurotransmitters:
+
+
+
+
+
+
+* Catecholamines
+
+
+
+
+  * Dopamine (DA), norepinephrine (NE, also called noradrenaline) and epinephrine (E, also called adrenaline) make up a class of neurotransmitters named on the basis of the hydroxylated phenol ring termed a catechol nucleus.
+
+
+
+
+
+
+* Indolamines
+
+
+
+
+  * Serotonin (5-hydroxytryptamine; 5-HT); is the principal member of this group of compounds. The name serotonin is derived from the fact that this substance was first isolated from the serum based on its ability to cause an increase in blood pressure. Melatonin, a second indolamine, is restricted to the pineal and is released into the blood stream in a manner that is regulated by the diurnal cycle. Melatonin will not be covered further in this chapter.
+
+
+
+
+
+
+* Histamine
+
+
+
+
+  * Histamine has been recognized as a neurotransmitter in the CNS only within the past fifteen years.
+
+
+
+
+
+
+
+
+
+The structure of the monoamine neurotransmitters is shown in Figure 12.1.
+
+
+
+
+
+
+
+
+
+
+
+12.2 Anatomy of Catecholamines
+
+
+
+Catecholamines are neurotransmitters in a sympathetic limb of the autonomic nervous system and in the CNS.
+
+
+
+12.3 Autonomic Nervous Systems
+
+
+
+As shown in Figure 12.2, norepinephrine is a neurotransmitter in postganglionic sympathetic neurons where it acts on smooth muscle to cause either contraction or relaxation, depending on the types of receptors present (see below). DA is a neurotransmitter in autonomic ganglia where it modulates cholinergic transmission and in the kidney, where it produces renal vasodilation and inhibits Na^+ and H_2O reabsorption. Epinephrine and norepinephrine are neurohumoral agents released into the circulation by the adrenal medulla. The ratio of E to NE released is 4 to 1.
+
+
+
+
+
+
+
+
+
+
+
+12.4 Central Nervous System
+
+
+
+Generally, the cell bodies of catecholamine neurons are found in clusters in the brain stem or midbrain and project to other regions of the brain and spinal cord. NE, for example, projects to almost every area of the brain. In contrast, DA has a more restricted projection. Epinephrine, which will not be covered in this chapter, has the most restricted distribution.
+
+
+
+12.5 Dopamine - Anatomy
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+The major site of DA cell bodies is the midbrain. These clusters of cells give rise to four DA systems shown in Figure 12.3:
+
+
+
+1. Mesostriatal system (blue and red in Figure 12.3),
+
+2. Mesolimbocortical system (purple in Figure 12.3),
+
+3. Periventricular system (orange in Figure 12.3), and
+
+4. Tuberohypophyseal system. (green in Figure 12.3).
+
+
+
+Mesostriatal DA System - The mesostriatal DA system, referred to as the nigrostriatal pathway, is composed of two components, a dorsal mesostriatal pathway and a ventral mesostriatal pathway. These two pathways are important for movement control and reward mechanisms.
+
+
+
+The dorsal mesostriatal pathway (blue) originates in the substantia nigra par compacta and ascends to innervate the corpus striatum (caudate, putamen, and globus pallidus), where it modulates the output of the corpus striatum. The destruction of the nigrostriatal cells in Parkinson's disease produces marked motor deficits.
+
+
+
+The ventral mesostriatal pathway (red) also originates in the substantia nigra and ventral tegmental area, and innervates the nucleus accumbens, olfactory tubercles and medial caudate-putamen. The ventral nigrostriatal pathway plays an important role in positive incentive characteristics of rewarding behaviors and the psychostimulants, as will be discussed further in Chapter 12, Part 10.
+
+
+
+Mesolimbocortical DA System - The Mesolimbocortical DA system (purple) originates in the midbrain and projects to limbic structures (septum, amygdala, hippocampus, olfactory nucleus, and limbic cortex). This DA system is believed to participate in schizophrenia. (See Chapter 12, Part 11) The current hypothesis is that an increase in DA function in the mesolimbic system and a decreased function in the mesocortical DA systems occur in schizophrenia.
+
+
+
+Periventricular DA System - The periventricular DA system (orange in Fig. 12.3) coordinates motivated behavior. These DA cells originate in the periventricular region of hypothalamus and send short axons to several thalamic and hypothalamic nuclei. Collaterals also descend to the intermediolateral cell column of the spinal cord to synapse with sympathetic preganglionic neurons. This dual innervation of hypothalamic and sympathetic preganglionic neurons is believed to integrate the central and autonomic components of motivated behaviors, including behaviors such as sex, thirst and appetite.
+
+
+
+Tuberohypophyseal DA System - The tuberohypophyseal DA system mediates the control of milk production during lactation. The DA cells (green) originate in the periventricular and arcuate nuclei of the hypothalamus and project to the median eminence of the hypothalamus where they release DA into the capillary plexus of the hypophyseal-portal system. DA travels to the anterior pituitary where it inhibits the release of prolactin, the hormone that stimulates milk production in lactating animals.
+
+
+
+12.6 Norepinephrine - Anatomy
+
+
+
+
+
+
+The major site of NE cell bodies is the medulla and pons. The NE cells consist of three main groups shown in Figure 12.4:
+
+
+
+
+* locus coeruleus complex (purple and red in Figure 12.4),
+
+
+
+* lateral tegmental system (blue in Figure 12.4), and
+
+
+
+* dorsal medullary system (green in Figure 12.4).
+
+
+
+In all three cases the neurons project diffusely to broad regions of the brain where their nerve terminals lack conventional synaptic junctions. Release of transmitter from these cells is described as volume transmission, because NE, once released, is thought to diffuse and influence a number of adjacent cells.
+
+
+
+Locus Coeruleus System - The locus coeruleus (LC-purple and red) is considered the most influential of the cell groups even though it consists of less than 2,000 cells on either side of the midline. This importance is because LC axons project rostrally via the dorsal noradrenergic bundle to innervate nearly the entire telencephalon and diencephalon, as well as dorsally to innervate the cerebellum and caudally to innervate the spinal cord. The nerve fibers are so highly ramified in the terminal fields such that each axon may branch as many as 100,000 times. This pattern of innervation enables the LC to synchronously modulate cellular activity across wide expanses of the cortex.
+
+
+
+Lateral Tegmental System - The axons of the lateral tegmental system (blue) project caudally to the intermediolateral cell column of the spinal cord where they inhibit sympathetic preganglionic cells, and ventrally to the hypothalamus. The joint innervation of the hypothalamus and the intermediolateral column cells is believed to be the basis for NE integration of central and peripheral sympathetic autonomic function.
+
+
+
+Dorsal Medullary System - As a complement to the lateral tegmental system, the dorsal medullary system (green) projects to the nucleus solitarius, as well as to the brain stem nuclei that control cranial parasympathetic function (glossopharyngeal, facial, and trigeminal- nuclei and the dorsal vagal nuclear complex). These NE systems are believed to provide control of the cranial parasympathetic system in a manner analogous to the lateral tegmental system's control of the sympathetic system.
+
+
+
+
+
+12.7 Epinephrine - Anatomy
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+(Note: there is no figure for epinephrine anatomy)
+
+Two clusters of epinephrine (E) cells are located in the medullary reticular formation. One cluster of cells in the ventrolateral medulla sends ascending projections to innervate the periaqueductal gray and several hypothalamic and olfactory nuclei. This cluster also sends a descending projection to innervate the sympathetic preganglionic cells of the intermediolateral column in a manner analogous to the NE lateral tegmental system. The second group of cells, located in the dorsomedial medulla near the floor of the fourth ventricle, project to several parasympathetic cranial nerve nuclei (similar to the dorsal medullary NE system, described above). These adrenergic cells are believed to coordinate eating and various visceral functions including the regulation of blood pressure.
+
+12.8 Serotonin - Anatomy
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+As shown in Figure 12.5, serotonin cells are located in two clusters:
+
+
+
+1. a caudal system in the medulla (B1-B4, green in Figure 12.5)
+
+2. a rostral system in the midbrain (B5-B9, purple and blue in Figure 12.5).
+
+
+
+Both project widely throughout the CNS.
+
+
+
+Caudal System: The caudal cluster of 5-HT cells (B1-B4) is located close to the midline and project caudally to the spinal cord dorsal and ventral horns as well as the intermediolateral cell column. These pathways are believed to mediate the role of 5-HT in sensory, motor and autonomic functions, respectively.
+
+
+
+Rostral System: The rostral midbrain cluster of cells (B5-B9), (raphe nuclei) are distributed throughout the midbrain. A cluster of cells located medially and another located dorsally provide over 80% of the 5-HT innervation of the forebrain. These cells project to the diencephalon, basal ganglia, limbic system, cortex, mesencephalic gray and inferior and superior colliculi. Some evidence supports the conclusion that the innervation of forebrain structures by serotonergic processes is complementary to that of NE. Another important aspect of 5-HT microanatomy is that two distinct patterns of innervation exist for these medial and dorsal systems. The dorsal system is similar in its anatomy to that of catecholamine neurons with thin diffusely branching axons lacking classic synaptic contacts (volume neurotransmission). The medial system, in contrast, appears to have classical synapses and is characterized by the presence of thick axons with large round nerve endings that make extensive synaptic contacts. These differences imply a marked difference in the physiological function of these two 5-HT systems.
+
+
+
+Other Systems: In addition to the above two pathways, another 5-HT pathway projects partially from one of the rostral nuclei (B5) and partially from two caudal nuclei (B2 & B3, dark green in Figure 12.5) to innervate the cerebellar cortex and deep cerebellar nuclei. There is also a widespread 5-HT projection to structures within the brainstem, including the locus coeruleus, several cranial nuclei, inferior olivary nucleus, and nucleus solitarius.
+
+
+
+12.9 Histamine - Anatomy
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Histamine cells (HA) are located exclusively in the basal posterior hypothalamus. These cells project extensively throughout the neural axis in a manner analogous to the NE and 5-HT systems. Although HA has not been investigated extensively, based on its diffuse innervation of the CNS and lack of classic synaptic contacts, it is likely that histamine has a broad behavioral and physiological function.
+
+
+
+Histamine is also the major active substance released from mast cells. The presence of mast cells in the blood in the CNS has hindered the analysis of the role of histamine as a neurotransmitter.
+
+
+
+12.10 Introduction to Cell Biology
+
+
+
+The monoamines will be considered as a group in discussing the cell biology of their 1) synthesis, 2) storage and 3) release. Monoamine receptors and termination of action of each monoamine will be considered separately.
+
+
+
+
+
+12.11 Cell Biology - Biosynthesis of Monoamines
+
+
+
+All monoamine (MA) neurotransmitters are synthesized from amino acids through a series of enzyme catalyzed reactions in which hydroxylation, decarboxylation and/or methylation convert the precursor amino acid into the active monoamine neurotransmitter.
+
+
+
+
+
+Biosynthesis of Dopamine (DA), Norepinephrine (NE), and 5-hydroxytryptamine (5-HT)
+
+
+
+Biosynthesis of all monoamines occurs primarily in the nerve terminal. As shown in Figure 12.7, the first step in the synthesis of catecholamines (DA and NE, as well as E, not shown) is the hydroxylation of the tyrosine to form DOPA. An analogous reaction, the hydroxylation of tryptophan to 5 hydroxytryptophane (5-HTP) is the first step in the biosynthesis of 5-HT. Both tyrosine hydroxylase and tryptophan hydroxylase are the rate-limiting steps in the biosynthetic pathway of the respective monoamines. Both enzymes are mixed function mono-oxygenases requiring molecular oxygen, iron and the cofactor, tetrahydrobiopterin (BH_4) for activity. BH_4 is converted to BH_2 during the hydroxylation and must be regenerated to BH_4 in order for monoamine biosynthesis to continue. As shown in Figure 12.7, the enzyme pteridine reductase regenerates the active cofactor. Pteridine reductase is therefore also an essential enzyme in the synthesis of catecholamines. The next step in the biosynthesis of monoamines is the decarboxylation by aromatic amino acid decarboxylase (AADC) to form the corresponding monoamine (Dopamine and 5 hydroxytryptamine 5-HT, respectively). NE is then formed from dopamine through an additional reaction, the hydroxylation of the 2^nd carbon of the DA side chain. This last hydroxylation step occurs within the monoamine storage vesicle (see Figure 12.9a) and is catalyzed by dopamine β hydroxylase.
+
+
+
+
+
+
+
+
+Biosynthesis of the DA and NE precursor L-DOPA and the 5-HT precursor 5-HTP through hydroxylation using tyrosine hydroxylase (TH) and tryptophan hydroxylase (TryH.) These intermediates are then decarboxylated by a nonspecific decarboxylase, aromatic amino acid decarboxylase (AADC) to form the respective monoamines. Pteridine reductase regenerates the cofactor BH_4.Biosynthesis of the DA and NE precursor L-DOPA and the 5-HT precursor 5-HTP through hydroxylation using tyrosine hydroxylase (TH) and tryptophan hydroxylase (TryH.) These intermediates are then decarboxylated by a nonspecific decarboxylase, aromatic amino acid decarboxylase (AADC) to form the respective monoamines. Pteridine reductase regenerates the cofactor BH_4.
+
+
+
+
+
+
+
+Two additional cofactors are required for the synthesis of monoamines; vitamin B6 is necessary as a cofactor for AADC catalyzed decarboxylation. Vitamin C is required as a cofactor for DA conversion to NE in the storage vesicle (see Figure 12.9a).
+
+
+
+Biosynthesis of Epinephrine (E)
+
+
+
+Epinephrine is synthesized in adrenal medulla and CNS by methylation of NE on the amino-terminus (not shown). The enzyme that catalyzes this reaction is phenyl ethanolamine N methyl transferase (PNMT). This enzyme uses S-adenosyl methionine as the methyl donor to methylate norepinephrine to form epinephrine (the nor refers to the lack of the methyl group). PNMT's localization outside the storage vesicle requires that norepinephrine shuttle out of the vesicle to be converted to epinephrine and then back into the storage vesicle for storage and release.
+
+
+
+Biosynthesis of Histamine (HA)
+
+
+
+
+
+
+
+As shown in Figure 12.8, in contrast to the catecholamines and 5-HT, the biosynthesis of histamine does not require hydroxylation. Histamine is the product of the decarboxylation of the amino acid, histidine, to form the monoamine, histamine, in a single step that is analogous to the decarboxylation of DOPA and 5-HTP. A different enzyme is used to decarboxylate histidine, histidine decarboxylase, as shown in Figure 12.8. This enzyme, like AADC, requires vitamin B6.
+
+
+
+
+
+Regulation of Catecholamine Biosynthesis
+
+
+
+The concentration of catecholamines in nerve terminals remains relatively constant despite frequent fluctuations in neuronal activity. This homeostasis is achieved through the regulation of TH activity. TH is phosphorylated and activated by both calcium and cAMP dependent protein kinases. A longer-term regulation of CA synthesis also occurs. This regulation is mediated through altered transcription of TH mRNA and altered TH mRNA stability. Both mechanisms lead to increased levels of TH protein.
+
+
+
+Regulation of Serotonin Biosynthesis
+
+
+
+The level of serotonin is regulated principally by the amount of tryptophan available to serotonergic neurons. This has two important implications for the level of serotonin in the brain. First, because tryptophan is not synthesized in mammals, the level of tryptophan available for serotonin biosynthesis is dependent on diet. Thus, diets high in tryptophan can markedly elevate serotonin levels. Second, because tryptophan is transported across the blood brain barrier by a transport system which also transports certain other amino acids, diets high in these amino acids can reduce the level of serotonin in the brain by competing with tryptophan for transport into the CNS. As will be discussed later, altered serotonin level in the CNS can have marked consequences on behavior.
+
+
+
+Regulation of Histamine Biosynthesis
+
+
+
+Thus far the mechanism for the regulation of histamine biosynthesis is unknown.
+
+
+
+12.12 Storage of Monoamines
+
+
+
+Monoamine neurotransmitters are stored in vesicles that appear dark at the EM level and are thus referred to as dense core vesicles. MA neurotransmitters are stored at a high concentration and are complexed with ATP and several proteins called chromogranins. One of these chromogranins is the enzyme, dopamine β hydroxylase (DβH), that converts DA to NE. As shown in Figure 12.9, MA neurotransmitters are taken into the vesicles by an exchange of H^+ for the MA. In NE cells DA is taken up and converted to NE by DβH. As described above in the synthesis section, DβH hydroxylates the amino side chain. The uptake of MA neurotransmitters into storage vesicles is inhibited by the drug reserpine.
+
+
+
+
+
+
+
+
+An antiporter that exchanges protons for monoamines (MA) mediates storage of monoamines in dense core vesicles.
+
+
+
+
+
+
+
+12.13 Release of Monoamines
+
+
+
+
+
+
+
+Neuronal activation elicits the release of MA neurotransmitters by a calcium-dependent exocytosis, as described in Lecture 10, under Secretory Mechanism. The vesicular contents are released from the nerve terminal into the extracellular space during secretion. Because there is no classic postsynaptic specialization associated with the majority of MA nerve endings, the released MA neurotransmitters diffuse to postsynaptic cells in the vicinity where they stimulate MA receptors (volume neurotransmission).
+
+
+
+
+
+MA neurotransmitters also act on the presynaptic cell, as shown in Figure 12.10 to influence their cell biology in a feed back manner. The interaction with the presynaptic receptors (termed autoreceptors) can both stimulate MA biosynthesis and inhibit the further release of neurotransmitter. Both the pre- and postsynaptic MA receptors are G protein linked, seven trans-membrane receptors. Their structure is similar to the muscarinic receptors discussed in the Lecture 11, Cholinergic Neurotransmission.
+
+
+
+12.14 Properties of Monoamine Receptors
+
+
+
+The vast majority of the MA receptors are seven transmembrane, G-protein coupled receptors (GPCR) that mediate MA action through one of a few mechanisms. These are the same mechanisms employed by other GPCR, such as the muscarinic receptors (Chapter 12, Part 5) and GPC-glutamate receptors (Chapter 13, Part 3). These mechanisms are:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+As will be described below, one type of MA receptor, 5-HT_3, is unusual in that it is NOT LINKED TO G PROTEIN LINKED RECEPTORS. Instead, 5-HT_3 receptors are ligand gated ion channels, similar in structure and function to ionotropic nicotinic cholinergic receptors and glutamate receptors.
+
+
+
+
+
+12.15 NE and E Receptors
+
+
+
+The receptors for NE and E were originally classified based on the observation that some physiological actions were mimicked by the catecholamine analog, isoproterenol, whereas others were not. This observation led to the convention that actions that could be mimicked by isoproterenol were classified as mediated by β-receptors. Those actions that were not mimicked by isoproterenol were classified as mediated by α-receptors.
+
+
+
+12.16 Relationship Between Peripheral NE and E Receptor Type, Location and Effector Mechanism
+
+
+
+This classification has since been extended to include subclasses of α and β receptors based on the capacity of drugs to selectively activate (or block) specific physiological responses to NE and E. The molecular cloning of mRNAs for distinct subclasses of NE and E receptors also aided in the classification of receptors. Tables I, II and III summarize autonomic and CNS NE and E receptor types, their location and their physiological action. Noteworthy is the fact that most α receptor responses are excitatory, while most β responses are inhibitory (although some exceptions exist, e.g. cardiac muscle). Also, the α receptor is invariably linked to IP_3 production, whereas the β receptor is associated with increased levels of cAMP.
+
+
+
+
+
+
+
+
+ 	Location
+ 	Synaptic Action
+ 	Linked to:
+
+
+
+α
+ 	Uterine muscle
+ 	Contraction
+ 	IP_3 production
+
+
+
+α
+ 	Blood vessels
+ 	Constriction
+ 	IP_3 production
+
+
+
+α
+ 	Bladder
+ 	Contraction
+ 	IP_3 production
+
+
+
+α
+ 	Spleen
+ 	Contraction
+ 	IP_3 production
+
+
+
+α
+ 	Iris
+ 	Pupil dilation
+ 	?
+
+
+
+β_1
+ 	Heart
+ 	Increased rate and force of contraction
+ 	Increased cAMP
+
+
+
+β_2
+ 	Blood vessels
+ 	Relaxation
+ 	Increased cAMP
+
+
+
+β_2
+ 	Bronchial muscle
+ 	Relaxation
+ 	Increased cAMP
+
+
+
+β_2
+ 	Bladder
+ 	Relaxation
+ 	Increased cAMP
+
+
+
+β_2
+ 	Spleen
+ 	Relaxation
+ 	Increased cAMP
+
+
+
+β_3
+ 	Fat cells
+ 	Lipolysis
+ 	Increased cAMP
+
+
+
+
+
+12.17 Relationship Between CNS NE Receptor Type and Effector Mechanism
+
+
+
+The distribution of NE receptors in the CNS is complex and not yet well resolved. Generally, both α and β receptors are believed to be modulators of the actions of other neurotransmitters. As summarized in Table II, α_1 receptors are often excitatory, acting via IP_3. In contrast, α_2 receptors are inhibitory acting via decreased levels of cAMP. β receptors are inhibitory and act through increased levels of cAMP (TABLE II). The anatomical location of the specific receptor subtypes is not yet clearly delineated.
+
+
+
+
+
+
+
+
+ 	Synaptic Action
+ 	Signaling Mechanism
+
+
+
+α_1
+ 	Slow depolarization
+ 	IP_3 production
+
+
+
+α_2
+ 	Slow hyperpolarization
+ 	Decreased cAMP
+
+
+
+β_1
+ 	Decreased excitability
+ 	Increased cAMP
+
+
+
+β_2
+ 	Decreased excitability
+ 	Increased cAMP
+
+
+
+
+
+12.18 DA Receptors
+
+
+
+In the CNS, dopamine receptors, designated by the letter D, are grouped into two large families based on cDNA-derived structural similarities, synaptic action and signaling mechanism (TABLE III). The D_1 family (D_1 and D_5) increases cAMP level, and has a positive influence on the excitability of its target cell. The D_2 family (D_2, D_3, and D_4) decreases cAMP level and decreases the excitability of the target cell. As shown in Table III the two families of receptors appear to have similar anatomical distributions. However, this may be misleading. Future research will probably show that the location of the receptors is on distinct postsynaptic cells or on presynaptic versus postsynaptic sites.
+
+
+
+12.19 Relationship Between CNS Dopamine Receptor Type, Location, and Effector Mechanism
+
+
+
+
+
+
+
+
+ 	Location
+ 	Synaptic Action
+ 	Signaling Mechanism
+
+
+
+(D_1, D_5)
+ 	Caudate -putamen, nucleus accumbens, olfactory tubercles, hippocampus, hypothalamus
+ 	 Increased excitability
+ 	Increased cAMP
+
+
+
+(D_2, D_3, D_4)
+ 	Caudate -putamen, nucleus accumbens, olfactory tubercles, frontal cortex, diencephalon, brain stem
+ 	Decreased excitability
+ 	Decreased cAMP
+
+
+
+
+
+12.20 5-HT Receptors
+
+
+
+All but one of the 5-HT receptors belongs to the G protein coupled receptor superfamily. The one exception is the 5-HT_3 receptor, which is a ligand gated ion channel. As is apparent from the summary in Table IV, 5-HT mediated actions occur through the same types of second messenger mechanisms as cholinergic and catecholamine G protein linked receptors.
+
+
+
+Two classes of 5-HT receptors, 5-HT_1B and 5-HT_1D, appear to predominantly act as autoreceptors to modulate the synthesis and release of 5-HT from the presynaptic terminal of serotonergic neurons. Other receptor types lead to an increase in the excitability of the target cell (5-HT_2 and 5-HT_4), while still others (5-HT_1) decrease excitability. Interestingly, receptors that mediate increased excitability do so through at least three mechanisms, PLC_β stimulation, stimulation of adenylyl cyclase or the direct interaction of 5-HT with the ion channel to depolarize the membrane.
+
+
+
+12.21 Relationship Between CNS 5-HT Receptor Type and Effector Mechanism
+
+
+
+
+
+
+
+
+ 	Receptor Type
+ 	Synaptic Action
+ 	Signaling Mechanism
+
+
+
+ 	G protein linked
+
+
+ 	1) Decreased cAMP
+
+
+
+
+ 	G protein linked
+ 	Autoreceptor-mediated decreased 5-HT release
+ 	Decreased cAMP
+
+
+
+ 	G protein linked
+ 	?
+ 	Decreased cAMP
+
+
+
+ 	G protein linked
+ 	Autoreceptor-mediated decreased 5-HT release
+ 	Decreased cAMP
+
+
+
+ 	G protein linked
+ 	Increased excitability
+
+(decreased K^+ conductance)
+ 	IP_3 production
+
+
+
+ 	G protein linked
+ 	Increased excitability
+
+(decreased K^+ conductance)
+ 	Increased cAMP followed by phosphorylation of K^+ channels
+
+
+
+ 	Ligand gated pentameric cation channel
+ 	Ligand gated pentameric cation channel Rapid depolarization
+ 	Increased Na^+, K^+ and Ca^2+ conductance
+
+
+
+
+
+12.22 Histamine Receptors
+
+
+
+Three subtypes of histamine receptors have been identified. All three are G protein linked and all three are present in the CNS as well as the periphery. Thus far, only peripheral H receptors have been characterized (See Table V).
+
+
+
+12.23 Relationship Between CNS and Peripheral Histamine Receptor Type, Location and Effector Mechanism
+
+
+
+H_1 receptors mediate the well-known physiological responses to histamine that occur in response to histamine liberation from mast cells. A large number of prescription and over the counter drugs, antihistamines, act by blocking H_1 receptors. Because most H_1 blockers also have a sedative effect and cause drowsiness, it appears likely that H_1 receptors are also present in the CNS. Recently developed H_1 blockers that do not cross that blood brain barrier have circumvented the sedative problem.
+
+
+
+The mechanism of action of H_1 receptors is the activation of PLC_β
+
+
+
+H_2 receptors are responsible for the peripheral actions of histamine that are not blocked by H_1 antagonists. These receptors are coupled to stimulation of cAMP and are responsible for histamine's stimulation of gastric acid secretion. Recently developed specific H_2 receptor blockers, Tagamet and Zantac, are effective clinically for excess secretion of gastric acid. Because these drugs do not cross the blood brain barrier, they have no effects on the CNS.
+
+
+
+H_3 histamine receptors are found on histamine nerve terminals where they regulate the release of histamine. There is evidence for these receptors on the terminals of other neurotransmitter types as well, indicating that histamine may regulate the synthesis and secretion of other neurotransmitters. When presynaptic receptors are located on cells other than their own neurotransmitter type they are called heteroreceptors.
+
+
+
+
+
+
+
+
+ 	Receptor Type
+ 	Location and Synaptic Action
+ 	Signaling Mechanism
+
+
+
+ 	G protein linked
+
+
+
+* Peripherally - contraction of smooth muscle, fluid secretion from respiratory passage cells, increased release of catecholamines from adrenal medulla
+
+* CNS, wide spread, especially hypothalamus; actions unknown
+
+
+ 	IP_3 production
+
+
+
+ 	G protein linked
+
+
+
+* Peripherally - contraction of smooth muscle and gastric acid secretion
+
+* CNS, wide spread, especially the striatum, actions unknown
+
+
+ 	Increased cAMP
+
+
+
+ 	not determined-probably G protein linked
+
+
+
+* CNS, wide spread on nerve endings - mediates decreased neurotransmitter release
+
+
+ 	Decreased cAMP
+
+
+
+
+
+
+
+12.24 Inactivation of MA Neurotransmitters by Reuptake and Metabolism
+
+
+
+The major mechanism for the inactivation of secreted MA is the reuptake into the nerve terminal from which the MA was released. Under conditions of very high neuronal activity, the MA will also be taken up by neighboring glial cells and will overflow into the capillaries perfusing the CNS. Under all three situations, a portion of the MA will be metabolized by enzymes that inactivate the MA, converting them to inactive products. As described below, measurement of these metabolites is used clinically and in research to monitor the activity of the MA systems.
+
+
+
+
+
+12.25 Reuptake of MA Neurotransmitters
+
+
+
+High affinity transport (reuptake) into axon terminals is the main process of inactivation of released monoamines. Reuptake requires sodium ions and a source of energy (e.g., ATP) and is mediated by a protein carrier located on the plasma membrane of the monamine neurons. Tricyclic antidepressants and cocaine inhibit the transporters for DA, NE and 5-HT. Within the past ten years the structure of several MA transporters has been determined and shown to consist of a twelve transmembrane protein with both the N and C terminal ends residing within the cytoplasm (Figure 12.11). The powerful addictive drugs cocaine and amphetamine increase the level of MA neurotransmitters in the extracellular space. Cocaine acts by blocking the transport of MA (Figure 12.11) neurotransmitters into the terminal and as a consequence increases MA in the extracellular space. In contrast, amphetamine reverses the transport direction (Figure 12.11), transporting MA neurotransmitters out of the nerve terminal.
+
+
+
+
+
+
+
+A low affinity uptake of monoamines into surrounding glial cells also inactivates released monoamines. Because this process acts only at very high concentrations of monoamines, it is believed to only come into play when the concentration of released neurotransmitter is very high.
+
+
+
+A portion of released catecholamines diffuse to the extracellular space where monoamine oxidase (MAO) and/or catechol-0-methyl-transferase (COMT) eventually catabolize it. This route of inactivation is more prominent following extremely high levels of catecholaminergic neuronal activity.
+
+
+
+12.26 Metabolism of MA Neurotransmitters
+
+
+
+Catecholamines and 5-HT: The enzymatic metabolism of MA neurotransmitters is carried out by MAO, COMT and histamine methyl transferase. These enzymes are widely distributed in tissues.
+
+
+
+
+
+Monoamine Oxidase (MAO): This metabolic enzyme is located on the outer membrane of the mitochondrion and metabolizes DA, NE and 5-HT by oxidative deamination of (see Figure 12.12) to the corresponding aldehyde (DHPA, DHPGA and 5HIAA, respectively). DHPA and PHPGA are aldehyde intermediates that must be further metabolized by aldehyde reductase or dehydrogenase to alcohols and acids, respectively. These metabolites are excreted (see Table VI below), or further metabolized by methylation through the action of catechol-O-methyltransferase and then excreted (see below). Pargyline, an irreversible inhibitor of MAO, blocks monoamine degradation.
+The deamination of three monoamine by mitochondrial MAO.
+
+
+
+
+
+
+
+Catechol-O-methyl-transferase (COMT): This extraneuronal enzyme inactivates catecholamines by methylation of the hydroxyls on the catechol ring. COMT methylates either catecholamines that have already been metabolized by MAO or those that have not. The metabolites of catecholamines are shown in Table VI.
+
+
+
+Measurement of MA metabolites in CSF, blood or urine provides a useful clinical index of the rate of release or turnover of MA neurotransmitters. Metabolites of catecholamines and serotonin are assayed in the CSF to obtain an index of brain metabolites. This method has been only modestly useful in determining the role of a specific MA neurotransmitters in brain disorders. Likewise, specific catecholamine metabolites in urine or the blood provide an index of peripheral sympathetic neurons and adrenal medullary catecholamines. The metabolites that are routinely measured clinically to assess CNS and peripheral catecholamine function are summarized in Table VI. Two CSF metabolites provide a measure of central DA function: 1) HVA, a methylated DA metabolite (metabolized by both MAO and COMT), and 2) DOPAC, an un-methylated metabolite, (metabolized by only MAO). The CSF metabolite that is measured to assess central NE function is MHPG, a methylated NE metabolite (metabolized by MAO and COMT). The metabolite that provides the best index of autonomic nervous system activity is VMA, a methylated NE metabolite (metabolized by both MAO and COMT). Metanephrine levels are monitored to assess the relative activity of the adrenal medulla or a tumor of this tissue, phaeochromocytoma. 5-HIAA reflects the activity of 5-HT cells.
+
+
+
+Histamine: The metabolism of HA is somewhat different than the other MA. HA is taken up into cells where it is first methylated by histamine methyltransferase (HMT) to form telemethylhistamine. MAO subsequently oxidizes telemethylhistamine to the histamine metabolite, telemethylimadazole (TMI).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 	Enzymes
+ 	Metabolites
+ 	Source
+
+
+
+ 	MAO
+ 	DOPAC
+ 	Brain
+
+
+
+ 	HVA
+ 	Brain
+
+
+
+ 	MAO; COMT
+ 	VMA
+ 	PNS
+
+(sympathetic neurons)
+
+
+
+ 	MHPG
+ 	Brain (mainly);
+
+
+
+
+ 	Normetanephrine
+ 	Little formed
+
+
+
+ 	COMT
+ 	Metanephrine (mainly)
+ 	Adrenal medulla
+
+
+
+ 	MAO
+ 	5-HIAA
+ 	Brain; PNS
+
+
+
+ 	HMT; MAO
+ 	TMI
+ 	Peripheral (mainly);
+
+brain (less)
+
+
+
+
+
+
+
+
+
+
+
+
+12.27 Dopamine - Physiological and Behavioral Actions
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+DA is involved in a number of important physiological functions including motor control, coordinating autonomic function, and regulating hormone release and motivation. The role of DA systems in motivated behavior is of particular importance.
+
+
+
+
+
+DA appears to be involved in at least two phases of motivated behavior: an appetite phase and a consumption phase. The ventral striatum, particularly the nucleus accumbens, has been shown to be actively involved in appetitive aspects of motivation. For example, food deprived animals with lesions of the nucleus accumbens fail to show an appetitive behavior when presented with food. The consumption of the food, in contrast, is unimpaired by these lesions. On the other hand, the dorsal striatum, particularly the caudate-putamen, appears to be involved in consummatory aspects of motivated behavior. Lesions in this region disrupt motivated behavior. Animals with lesions in this region will approach food but will not consume it. These and other observations have led to the proposition that DA mediates a performance activating effect of motivated behavior, as well as conveying internal reward signals. These characteristics of DA neurotransmission make it an extremely important neurotransmitter in motivational behavior as well as in the neuropharmacology of reward. Importantly, DA neurotransmission is hypothesized to be at the heart of the mechanisms of ALL addictive-drugs and behaviors. A pertinent example of DA's role is illustrated by both cocaine and amphetamine, two abused drugs that act by increasing the concentration of DA in the synaptic space.
+
+
+
+12.28 Norepinephrine - Physiological and Behavioral Actions
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+NE, like DA, is involved in a broad range of physiological functions and behaviors. One of the most important is its role in attention and arousal.
+
+
+
+NE neurons appear to be involved in the regulation of an organism's vigilance. The broad projection of the locus coeruleus (LC) makes it especially well suited to act as a mechanism to alert cortical and thalamic areas to incoming sensory stimuli. The LC is electrophysiologically quiet during low vigilance states such as sleep or in the lack of sensory input. When exposed to a strong stimulus, the LC markedly increases its firing rate, however. The broad influence of the activated LC is to filter weak stimuli and enhance moderate stimuli. This filtering and enhancement by NE is believed to aid in CNS processing of sensory information. In support of this conclusion, the application of NE to cortical neurons reduces responsiveness to weak stimuli, and enhances responses to strong stimuli. α_2 receptors appear to be important for these responses.
+
+
+
+12.29 Serotonin - Physiological and Behavioral Actions
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Serotonin is a key neurotransmitter in a number of physiological regulatory mechanisms and behaviors, including appetite, sleep, and aggression.
+
+
+
+
+
+Serotonin is important in the regulation of appetite, and appears to act in a pathway that monitors the carbohydrate intake, acting as a negative regulator of the motivation to ingest carbohydrate. This response appears to be mediated by 5-HT in the hypothalamus and has led to the use of serotonin uptake blockers, such as fenfluramine, as obesity pills (Table VII).
+
+
+
+Many clinical observations and animal behavioral studies support the conclusion that serotonin is an important factor in aggressive behavior and the expression of dominance versus submissive behavior. For example the use of pharmacological agents to decrease levels of 5-HT at synapses in animal studies consistently demonstrates that low 5-HT is associated with both increased aggressiveness and decreased dominance. Similarly, the measurement of 5-HT metabolites in CSF and blood of patients or experimental animals shows that low 5-HIAA predicts aggressiveness as well as risk taking and a lower social rank. This correlation between decreased 5-HT activity and increased aggression was recently supported by the observation that 5-HT_1B receptor knock-out mice have a marked increase in aggressive behavior.
+
+
+
+12.30 Clinical Importance and Pharmacology
+
+
+
+MA neurotransmitters are prominent participants in the etiology of many PNS and CNS disorders. Described below are several of the more prominent examples. Some of the many neuropharmacological agents that are used to treat these disorders are contained in Table VII.
+
+
+
+
+
+12.31 Dopamine - Clinical Importance and Pharmacology
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+DA is implicated in psychiatric illnesses (especially schizophrenia) and disorders of movement control.
+
+
+
+
+
+Schizophrenia. The DA theory of schizophrenia is based on the observation that DA antagonists are effective antipsychotic drugs. Their capacity to inhibit DA receptors correlates well with their antipsychotic efficacy. Currently, clinical studies are attempting to develop DA antagonists with specific DA receptor subtype efficacy that will most effectively decrease the antipsychotic symptoms without influencing other DA actions, such as movement control. As mentioned in the anatomy section, an overactivity of the mesolimbic DA system appears especially prominent in schizophrenia.
+
+
+
+Disorders of Movement Control. It is now well accepted that decreased DA in the substantia nigra and striatum is the critical lesion in Parkinson's disease. Autopsy shows that nearly all DA is lost during the course of this disease, apparently due to the degeneration of DA neurons. l-DOPA is used to treat this disease's symptoms because it can be converted to DA by AADC in the cells in the vicinity of the degenerated nerve endings to replace the missing endogenous DA. Some preparations of l-DOPA include a pherpheral AADC inhibitor so that more of the l-DOPA will be available for transport into the CNS. Conversion of l-DOPA into DA in the blood prevents its transport into the CNS. Other drugs that are effective in treating Parkinson's symptoms are DA agonists, as well as MAO and COMT inhibitors.
+
+
+
+
+
+12.32 Norepinephrine - Clinical Importance and Pharmacology
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Affective Disorders. NE is believed to be involved in the etiology of some unipolar and bipolar affective disorders. This conclusion is based to a large degree on the observation that drugs that are effective in treating depression are also good at either 1) preventing the metabolism of NE (MAO inhibitors), or 2) preventing the the removal of NE from the extracellular space by uptake into nerve endings. There is also evidence that the levels of the CNS NE metabolites are lower in depressed patients and higher during the manic phase of bipolar disorder in manic patients.
+
+
+
+
+
+Autonomic or Smooth Muscle Dysfunction. Drugs that interact with NE receptors are widely used to treat disorders involving autonomic or smooth muscle dysfunction such as asthma, coronary heart disease, angina pectoris, ventricular arrhythmias, migraine and hyperthyroidism. (See Table VI).
+
+
+
+12.33 Serotonin - Clinical Importance and Pharmacology
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Affective Disorders. Low levels of 5-HT and metabolites are associated with depression and especially a type of depression that is more likely to lead to suicide. Several studies have shown reduced 5-HT in brains of suicide victims as well as a low 5HIAA in CSF of depressed patients who have high incidence of suicide attempts. Recent studies indicate that this type of 5-HT influence may start early in life; low levels of 5HIAA have been found in children and adolescents with disruptive behavioral disorders. Some of the drugs that are effective antidepressant treatments are nonspecific with respect to their relative influence on NE versus 5-HT disposition, thus it has been difficult to know for certain which monoamine is responsible for the treatment effects. More recently selective serotonin reuptake inhibitors (termed SSRIs) have been introduced for the treatment of depression that are among the more effective drugs available for this purpose.
+
+
+
+Obsessive Compulsive Disorder. 5-HT dysfunction has been associated with obsessive compulsive disorder. Accordingly, selective 5-HT uptake blockers are used as a therapy for this condition.
+
+
+
+Aggression. Although controversial, 5-HT reuptake blockers are used for the treatment of aggression.
+
+
+
+Eating Disorders. Also controversial is the use of the drug fenfluramine to treat eating disorders because of the toxic effects that occur in some individuals. Fenfluramine blocks 5-HT reuptake into nerve terminals.
+
+
+
+Schizophrenia. A number of recently introduced antipsychotic drugs are producing favorable results in treating the symptoms of schizophrenia. These drugs are interesting pharmacologically in that they block both DA and 5-HT receptors as well as ACh and HA (Table VII, Olanzapine).
+
+
+
+Migraine Headaches. 5-HT_1 agonists are used for the treatment of migraine headache.
+
+
+
+Insomnia. The role of 5-HT in sleep regulation has lead to the hypothesis that reduced levels 5-HT may induce insomnia. Some clinicians are treating patients with 5-HT uptake blockers for this ailment.
+
+
+
+12.34 Histamine - Clinical Importance and Pharmacology
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Insomnia. The most popular treatment for insomnia is the use of over the counter CNS acting antihistamines.
+
+
+
+See the Table of Drugs that Interact with Monoamines.

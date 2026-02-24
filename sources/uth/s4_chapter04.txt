@@ -1,0 +1,132 @@
+Source: Neuroscience Online: An Electronic Textbook for the Neurosciences
+URL: https://nba.uth.tmc.edu/neuroscience/s4/chapter04.html
+License: Open Access
+
+Feeding by its nature is intermittent, yet the need for energy in tissues is constant. Thus, mechanisms have evolved for the ebb and flow of nutrients after feeding and during the post-absorptive period; and the maintenance of near-normal function during fasting. The remarkable stability of body weight in persons with access to adequate food supplies is testament to the precision by which metabolic needs are monitored and maintained. Aberrations in these controls can produce serious and even life-threatening conditions.
+
+
+
+
+
+
+
+4.1 Theories of Caloric Homeostasis
+
+
+
+Two major hypotheses have been put forward to account for the process by which the usual balance in caloric intake is established.
+
+
+
+
+
+
+
+The Depletion-repletion Hypothesis. The depletion-repletion hypothesis is essentially based on the idea of a caloric set-point. In its simplest version individuals match energy expenditure and energy intake without reference to the level of fat storage. In more complicated models fat (energy) depots, and presumably other nutrient depots, send signals to the brain about their current status. These inputs are compared to desired set points and food intake and energy expenditure are modified to effect adjustments to the levels of stores. The best evidence for this view is from small mammals. Glucose-responsive neurons that increase firing rate with glucose levels and glucose-sensitive neurons that are stimulated as glucose levels fall have been identified. Further, small mammals will habitually return to a body mass that is appropriate for their age, stage of development and/or environment after a forced perturbation. Thus, rats exposed to a period of food restriction or imposed overfeeding (gavage) express a compensatory hyper- or hypophagia on return to ad libitum feeding. The current studies on leptin (see below) has heightened interest in this potential mechanism.
+
+
+
+The Primed Response Hypothesis. This hypothesis essentially boils down to the idea that animals will eat whenever an opportunity presents itself unless it is specifically inhibited. Evidence in support of this idea comes from studies examining the relationship between caloric content in meals and feeding intervals. There is not a correlation between the amount eaten in a meal and the interval to the previous meal. Rather, the larger a given meal, the longer it will be to the next. This suggests that eating is inhibited by satiety signals generated in response to a meal.
+
+
+
+4.2 Mechanisms of Satiety
+
+
+
+There are two main issues in the concept of satiety. The first concerns the mechanisms that contribute to the termination of feeding at a given meal, whereas the second concerns the mechanisms that govern interprandial intervals. These mechanisms overlap to a degree.
+
+
+
+Neural Signals are essentially dependent on the vagus and involve both afferent and efferent components. The afferent signals in the vagus conveyed to the brain that function to limit meal size include information from stretch receptors in the stomach wall, and sensors in the portal blood vessels for cholecystokinin (CCK), glucose, osmolality and pH. All these stimuli limit meal size. Vagal afferents synapse in the nucleus of the solitary tract. In addition, the vagus sends afferents to the area postrema. These sites send projections to the paraventricular nucleus to inhibit feeding. The vagus also functions in an afferent capacity in that input from the vagus to the pancreas mediates the cephalic phase of insulin release. The sight and smell of food initiates activity in limbic cortex that in turn activates the central autonomic network. Outflow to the dorsal motor nucleus of the vagus and finally to the pancreas results in the first surge of insulin in the blood that accompanies a meal. Two additional increases in plasma insulin later occur as food enters the gut (the gastrointestinal phase) and then as nutrients enter the intestines (the substrate phase). In fact, these stimuli also result in satiety as insulin not only promotes energy storage but also acts as a humoral signal back to the brain for satiety.
+
+
+
+Humoral Signals for satiety are an extremely hot topic of research due to the vast potential weight-control market. The main factors in the blood that affect the CNS to limit/promote feeding are insulin, leptin, glucose, and CCK. Insulin, leptin and glucose gain access to the CNS at the circumventricular organs of the median eminence and the area postrema and act on specific receptors in neurons of the nuclear cell groups adjoining these areas. Insulin and leptin have received considerable recent interest as the mediators of satiety signals related to the caloric content of a meal and in relation to maintenance of a body weight set point, respectively. Chief among the CNS sites of action for these compounds as discussed below is the arcuate nucleus. CCK exerts its chief effects on satiety in the periphery by an action on the vagus to potentiate the responses to glucose, pH, and osmolality in the portal blood. CCK derived from neurons in the hypothalamus is also a transmitter substance in the CNS satiety network (see below).
+
+
+
+4.3 The CNS Satiety Network
+
+
+
+
+
+
+
+The Dual Center Hypothesis evolved about fifty years ago when it was demonstrated that bilateral lesions placed in the region of the ventromedial hypothalamus (VMH) produced a condition of voracious appetite and resulting marked hyperphagia. These animals would ultimately become remarkably obese. On the other hand, bilateral lesions of the ventrolateral hypothalamus (VLH) produced an anorexic condition that resulted in animals failing to feed and ultimately wasting. The assumption behind this set of experiments was that there are specific feeding and satiety centers. The conclusion in this set of experiments was that the feeding center was the VLH and the satiety center was the VMH. Although this dual center hypothesis has proven useful, the CNS satiety network has proven to be more complex. More recent repetitions of the earlier lesion studies showed that in fact animals with VMH lesions would not eat continually without limit, nor would the animals with VLH lesions necessarily starve to death. Rather, the VMH lesioned animals would eat excessively until they reached some new higher body weight at which point they would then reduce their food consumption to maintain this new set point. Likewise, once the VLH lesioned animals had dropped to some new level, they would again eat normally to maintain the new lower body weight set-point. These studies indicate that satiety and feeding is a balancing process between two major groups of neurochemical pathways that ultimately govern the relative tone between the sympathetic and parasympathetic components of the central autonomic network. The main entry points for information to this network are both neural and humoral. The neural inputs are from the vagus nerve via synapses in the nucleus of the solitary tract and the area postrema as well as inputs from the raphe nuclei. These inputs ascend in the medial forebrain bundle to the paraventricular and the lateral hypothalamic area (LHA). The humoral inputs pass the circumventricular organs and affect the area postrema and the arcuate nucleus. The arcuate nucleus projects into the LHA and the ventromedial nucleus as well as to the paraventricular and dorsomedial (DM) nucleus. The paraventricular nucleus returns inputs to the arcuate nucleus as well as to the VMH and LHA. There are no direct interconnections between the VMH and LHA, rather these are processed through the DM.
+
+
+
+
+
+
+
+Neurochemistry. Several peptides are involved in hypothalamic regulation of feeding and body mass. These can be sorted based on their behavioral effects into anabolic/orexigenic peptides that promote feeding and increase of body mass or as catabolic/anorexigenic peptides. Each set of peptides includes what appears to be a key signal molecule that promotes either feeding or satiety as well as an antagonist of the opposing stimulus.
+
+
+
+
+
+
+
+
+* Anabolic/orexigenic peptides include neuropeptide Y (NPY), agouti-related protein (AGRP), melanin-concentrating hormone (MCH), orexin, and galanin. NPY is the key feeding-promoting neuropeptide and NPY receptor subtype 5 is the key site of action. NPY increases in the arcuate nucleus within 6 hours of food deprivation. Of note the neurons that express NPY in rodents also express receptors for leptin and insulin and so are yoked to plasma-derived feeding signals. AGRP is an antagonist for the anorexigenic peptides as it blocks the MC3 and 4 receptors for γ- and α-melanocyte-stimulating hormones, respectively.
+
+* Catabolic/anorexigenic peptides include a-melanocyte stimulating hormone (a-MSH), cocaine- and amphetamine-regulated transcript (CART), glucagon-like peptides 1 and 2 (GLP-1, GLP-2) and prolactin-releasing peptide (PrlRP). These peptides fall with food deprivation and conversely rise with forced overfeeding. For example, corticotropin-releasing factor (CRF) increases in the paraventricular nucleus (PVN) and pro-opiomelanocortin (POMC) increases in the arcuate nucleus with overfeeding. The key anorexigenic signals are α- and less so γ-MSH acting at the MC4 and MC3 receptors, respectively. The antagonist in this group for the orexigenic peptide NPY is CART.
+
+
+
+
+4.4 Disorders of Feeding and Satiety
+
+
+
+
+Obesity is characterized by an excess of adipose tissue, however, the exact definition of “excess” is somewhat enigmatic. The simplest way to define “excess” is that amount of adipose tissue that creates a health risk. The best index at present is that this represents an amount of adipose tissue that puts an individual 20% or greater above their ideal body weight. Using these criteria somewhere between 20 and 40 percent of adults are obese with these rates over-representative by minorities and the poor. Excess intake of calories is the usual major contributor to obesity. Basal metabolic rate in a 70kg man is about 1500 calories/day, so anything above this in a sedentary, healthy individual will result in weight gain. Another mechanism besides excess caloric intake that may contribute to obesity is the lipoprotein lipase hypothesis in which an excess of adipose tissue lipoprotein lipase preferentially stores lipid calories as adipose tissue. Obesity has several important metabolic sequela that can contribute to additional medical problems.
+
+
+
+
+* Hyperinsulinemia with hyper- or euglycemia. Insulin resistance may develop due to an abnormal beta cell product, circulating antibodies or tissue insulin insensitivity. Insulin insensitivity results due to a combination of receptor and post-receptor defects in insulin action.
+
+
+
+* Hyperlipoproteinemia. Obesity is characterized by elevated VLDL and elevated serum triglyceride and an increase in serum free fatty acid turnover.
+
+
+
+* Hypertension, Hypoventilation (Pickwickian Syndrome) are often observed in the obese patient. Other endocrine disorders may also develop.
+
+
+
+
+
+
+Froehlich’s Syndrome is characterized by obesity, hypogonadotropic hypogonadism and other variable features including diabetes insipidus, visual impairment and mental retardation. It is thought to result due to a hypothalamic lesion.
+
+
+
+Anorexia Nervosa is a disorder almost exclusively seen in young, white women of middle-class background, with a prevalence of as high as 1 per 100 being reported. Subclinical prevalence may be as high as 5 percent. Diagnosis is made on a clinical basis as there is no diagnostic test. Patients observed to be below about 80% of ideal body weight are suspect when no other medical (psychological) causes can be identified. A disordered attitude toward eating, food or weight that overrides hunger, ritualized exercise, amenorrhea, bradycardia, hypotension, and hypothermia complete the usual clinical picture. Patients with anorexia are vulnerable to sudden death from ventricular tachyarrhythmias. There is no specific treatment as yet because the underlying mechanisms are not defined. However, a recent study has shown that a significant number of these patients and those with bulimia have plasma antibodies against pituitary and hypothalamic melanotropes and/or corticotropes suggesting an underlying autoimmune disorder.
+
+
+
+Bulimia is often considered a disorder related to anorexia nervosa. The disorder is characterized by the episodic ingestion of large amounts of food in a compulsive fashion (“ox-hunger”) coupled with the awareness that the eating pattern is abnormal, that it cannot be stopped, and depression at completion of the act. There is usually a morbid fear of becoming fat, although body weight is usually in the normal range. Induced vomiting that eventually becomes reflexive usually follows episodes of binge eating. Patients frequently have additional behavioral/psychiatric abnormalities.
+
+
+
+4.5 Summary
+
+
+
+
+
+Caloric homeostasis is maintained by a body weight set point. This set point is at least in part maintained by a set of signals from peripheral energy stores into the brain that stimulate feeding to maintain adequate stores of nutrients. Feeding also appears to largely occur as a primed response whenever food is available and that continues until inhibitory satiety signals are received in the brain that are derived from a meal.
+
+
+
+Cessation of feeding in a given meal and the time to the next meal is determined by neural and humoral signals derived from that meal. The neural signals come from the vagus and include information concerning the size (stretch of stomach) and caloric/nutrient content (portal glucose, plasma insulin, leptin).
+
+
+
+The CNS satiety network is a subdivision of the central autonomic network. Thus, it includes the brainstem afferent and efferent relays for the vagus as well as the brainstem sympathetic relays such as nuclear group A2 and the raphe system. The arcuate nucleus and less so the area postrema are key sites for registration of humoral inputs to this network. Integrated activity between the ventromedial, dorsomedial and lateral hypothalamic areas ultimately is integrated at the paraventricular nucleus that determines a net balance between the feeding promoting central parasympathetic circuitry and the satiety-promoting central sympathetic circuitry.
