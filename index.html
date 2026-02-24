@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Neuromodulator Network v2</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,300&family=Playfair+Display:wght@700;900&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --bg: #08090d;
+    --surface: #12151c;
+    --nt: #e8546e;
+    --hm: #4da6e8;
+    --act: #45c488;
+    --rec: #c084e4;
+    --text: #e2e0dc;
+    --text-dim: #5f6672;
+    --edge-ex: rgba(72, 199, 142, 0.55);
+    --edge-in: rgba(232, 84, 110, 0.45);
+    --edge-mod: rgba(192, 132, 228, 0.4);
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    overflow: hidden;
+    height: 100vh;
+    width: 100vw;
+  }
+
+  #header {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 18px 28px;
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    background: linear-gradient(to bottom, var(--bg) 70%, transparent);
+    pointer-events: none;
+  }
+
+  #header h1 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: 20px;
+    letter-spacing: -0.5px;
+    background: linear-gradient(135deg, #e2e0dc, #8891a0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  #header span {
+    font-size: 11px;
+    color: var(--text-dim);
+    font-weight: 300;
+  }
+
+  #legend {
+    position: fixed;
+    top: 58px;
+    left: 28px;
+    z-index: 100;
+    display: flex;
+    gap: 16px;
+    pointer-events: auto;
+  }
+
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 10px;
+    font-weight: 500;
+    color: var(--text-dim);
+    cursor: pointer;
+    transition: color 0.2s;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+  }
+  .legend-item:hover { color: var(--text); }
+
+  .legend-dot {
+    width: 9px; height: 9px;
+    border-radius: 50%;
+  }
+
+  #tooltip {
+    position: fixed;
+    pointer-events: none;
+    background: rgba(12, 14, 20, 0.95);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 10px;
+    padding: 14px 18px;
+    font-size: 12px;
+    line-height: 1.6;
+    max-width: 300px;
+    display: none;
+    z-index: 200;
+    backdrop-filter: blur(14px);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.6);
+  }
+
+  #tooltip .tt-name { font-weight: 700; font-size: 14px; margin-bottom: 2px; }
+  #tooltip .tt-type { font-size: 9px; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 8px; opacity: 0.5; }
+  #tooltip .tt-desc { color: var(--text-dim); font-weight: 300; font-size: 11.5px; }
+  #tooltip .tt-connections { margin-top: 8px; font-size: 10px; color: var(--text-dim); border-top: 1px solid rgba(255,255,255,0.06); padding-top: 8px; }
+
+  #controls {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 100;
+    display: flex;
+    gap: 4px;
+    background: rgba(12, 14, 20, 0.85);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 10px;
+    padding: 4px;
+    backdrop-filter: blur(14px);
+  }
+
+  .ctrl-btn {
+    background: transparent;
+    border: none;
+    color: var(--text-dim);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 10px;
+    padding: 7px 12px;
+    border-radius: 7px;
+    cursor: pointer;
+    transition: all 0.2s;
+    letter-spacing: 0.3px;
+  }
+  .ctrl-btn:hover { background: rgba(255,255,255,0.06); color: var(--text); }
+  .ctrl-btn.active { background: rgba(255,255,255,0.1); color: var(--text); }
+
+  #edge-legend {
+    position: fixed;
+    bottom: 20px;
+    right: 28px;
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    font-size: 9.5px;
+    color: var(--text-dim);
+  }
+
+  .edge-legend-item { display: flex; align-items: center; gap: 7px; }
+  .edge-legend-line { width: 22px; height: 2px; }
+
+  .edge-legend-item .arrow-demo {
+    display: inline-block;
+    font-size: 11px;
+    margin-left: -2px;
+  }
+
+  #info-panel {
+    position: fixed;
+    top: 58px;
+    right: 28px;
+    z-index: 100;
+    font-size: 10px;
+    color: var(--text-dim);
+    text-align: right;
+    pointer-events: none;
+    line-height: 1.7;
+  }
+
+  #graph { width: 100vw; height: 100vh; }
+</style>
+</head>
+<body>
+<div id="header">
+  <h1>Neuromodulator Network</h1>
+  <span>v2 — drag nodes · hover for details · scroll to zoom</span>
+</div>
+
+<div id="legend">
+  <div class="legend-item" data-type="neurotransmitter"><div class="legend-dot" style="background:var(--nt)"></div>Neurotransmitter</div>
+  <div class="legend-item" data-type="hormone"><div class="legend-dot" style="background:var(--hm)"></div>Hormone</div>
+  <div class="legend-item" data-type="activity"><div class="legend-dot" style="background:var(--act)"></div>Activity</div>
+  <div class="legend-item" data-type="receptor"><div class="legend-dot" style="background:var(--rec)"></div>Receptor System</div>
+</div>
+
+<div id="info-panel"></div>
+
+<div id="tooltip">
+  <div class="tt-name"></div>
+  <div class="tt-type"></div>
+  <div class="tt-desc"></div>
+  <div class="tt-connections"></div>
+</div>
+
+<div id="controls">
+  <button class="ctrl-btn active" data-filter="all">All</button>
+  <button class="ctrl-btn" data-filter="excitatory">Stimulates ↑</button>
+  <button class="ctrl-btn" data-filter="inhibitory">Inhibits ↓</button>
+  <button class="ctrl-btn" data-filter="modulatory">Modulates ~</button>
+  <button class="ctrl-btn" data-filter="converts">Converts →</button>
+</div>
+
+<div id="edge-legend">
+  <div class="edge-legend-item">
+    <div class="edge-legend-line" style="background:var(--edge-ex)"></div>
+    <span>Stimulates / Increases</span>
+  </div>
+  <div class="edge-legend-item">
+    <div class="edge-legend-line" style="background:var(--edge-in)"></div>
+    <span>Inhibits / Decreases</span>
+  </div>
+  <div class="edge-legend-item">
+    <div class="edge-legend-line" style="background:var(--edge-mod); border-top: 1px dashed rgba(192,132,228,0.6); height:0"></div>
+    <span>Modulates / Converts</span>
+  </div>
+</div>
+
+<svg id="graph"></svg>
+
+<script>
+// ═══════════════════════════════════════════════
+// DATA
+// ═══════════════════════════════════════════════
+
+const nodes = [
+  // ── Neurotransmitters ──
+  { id: "dopamine", label: "Dopamine", type: "neurotransmitter", size: 30, desc: "Reward prediction, motivation, motor control. Central hub of nearly all behavioral circuits. Acts via D1 (excitatory) and D2 (inhibitory) receptor families." },
+  { id: "serotonin", label: "Serotonin\n(5-HT)", type: "neurotransmitter", size: 28, desc: "Mood, satiety, impulse control, patience. ~95% produced in gut enterochromaffin cells. 14+ receptor subtypes with varied functions." },
+  { id: "norepinephrine", label: "Norepinephrine", type: "neurotransmitter", size: 24, desc: "Alertness, vigilance, focused attention, fight-or-flight. Synthesized from dopamine via dopamine β-hydroxylase." },
+  { id: "gaba", label: "GABA", type: "neurotransmitter", size: 26, desc: "Primary inhibitory neurotransmitter. Reduces neuronal excitability. GABA-A (fast ionotropic) and GABA-B (slow metabotropic) subtypes." },
+  { id: "glutamate", label: "Glutamate", type: "neurotransmitter", size: 24, desc: "Primary excitatory neurotransmitter. Learning, memory, synaptic plasticity via LTP. Excess causes excitotoxicity." },
+  { id: "acetylcholine", label: "Acetylcholine\n(ACh)", type: "neurotransmitter", size: 22, desc: "Focused attention, memory encoding, neuromuscular junction, parasympathetic activation. Degraded by acetylcholinesterase." },
+  { id: "endorphins", label: "β-Endorphin", type: "neurotransmitter", size: 22, desc: "Endogenous opioid peptide. Pain relief, euphoria, stress buffering. Primarily activates μ-opioid receptors." },
+  { id: "anandamide", label: "Anandamide", type: "neurotransmitter", size: 18, desc: "Endocannabinoid ('bliss molecule'). Partial CB1 agonist. Modulates pain, mood, appetite. Rapidly broken down by FAAH enzyme." },
+  { id: "dynorphin", label: "Dynorphin", type: "neurotransmitter", size: 18, desc: "Endogenous κ-opioid agonist. Counterbalances dopamine-driven reward, mediates dysphoria and aversion." },
+  { id: "adenosine", label: "Adenosine", type: "neurotransmitter", size: 22, desc: "Sleep pressure molecule. Accumulates during wakefulness as ATP byproduct. Promotes sleepiness, vasodilation. Antagonized by caffeine." },
+  { id: "substanceP", label: "Substance P", type: "neurotransmitter", size: 16, desc: "Neuropeptide for pain transmission and neurogenic inflammation. Works with opioid system in pain gating." },
+  { id: "histamine", label: "Histamine", type: "neurotransmitter", size: 18, desc: "Wakefulness, immune response, gastric acid secretion. Tuberomammillary nucleus fires during waking, silent during sleep." },
+
+  // ── Hormones ──
+  { id: "melatonin", label: "Melatonin", type: "hormone", size: 22, desc: "Circadian rhythm signal. Synthesized from serotonin via NAT and HIOMT in pineal gland. Suppressed by blue light via ipRGCs." },
+  { id: "cortisol", label: "Cortisol", type: "hormone", size: 26, desc: "Primary glucocorticoid stress hormone. Follows diurnal rhythm (peaks at waking). Metabolic regulation, immune modulation, memory consolidation." },
+  { id: "oxytocin", label: "Oxytocin", type: "hormone", size: 22, desc: "Social bonding, trust, empathy, uterine contraction, milk letdown. Hypothalamic paraventricular nucleus." },
+  { id: "vasopressin", label: "Vasopressin\n(ADH)", type: "hormone", size: 18, desc: "Pair bonding, territorial behavior, water retention, blood pressure. Closely related to oxytocin. Modulates aggression." },
+  { id: "testosterone", label: "Testosterone", type: "hormone", size: 20, desc: "Motivation, confidence, muscle growth, competitive drive. Influences dopamine receptor density." },
+  { id: "estrogen", label: "Estrogen", type: "hormone", size: 20, desc: "Neuroprotection, serotonin receptor upregulation, BDNF potentiation, dopamine modulation. Fluctuations drive mood changes." },
+  { id: "adrenaline", label: "Adrenaline\n(Epinephrine)", type: "hormone", size: 22, desc: "Acute stress: heart rate, bronchodilation, energy mobilization. Synthesized from norepinephrine in adrenal medulla." },
+  { id: "insulin", label: "Insulin", type: "hormone", size: 18, desc: "Glucose regulation. Promotes tryptophan transport across BBB → serotonin synthesis. Resistance impairs dopamine signaling." },
+  { id: "bdnf", label: "BDNF", type: "hormone", size: 22, desc: "Brain-derived neurotrophic factor. Neuron survival, synaptic plasticity, LTP, neurogenesis. The 'fertilizer' for the brain." },
+  { id: "prolactin", label: "Prolactin", type: "hormone", size: 18, desc: "Post-orgasm refractory period, lactation, immune modulation. Tonically suppressed by dopamine; released when dopamine drops." },
+  { id: "thyroid", label: "T3 / T4\n(Thyroid)", type: "hormone", size: 18, desc: "Metabolic rate, neuronal excitability, dopamine/serotonin receptor sensitivity. Hypothyroidism mimics depression." },
+  { id: "crh", label: "CRH", type: "hormone", size: 16, desc: "Corticotropin-releasing hormone. Initiates the HPA stress axis cascade → ACTH → cortisol. Drives anxiety behavior." },
+
+  // ── Receptor Systems ──
+  { id: "opioid_r", label: "Opioid\nReceptors\n(μ/δ/κ)", type: "receptor", size: 22, desc: "μ: analgesia, euphoria, dependence. δ: mood, analgesia. κ: dysphoria, diuresis. Endogenous ligands: endorphins, enkephalins, dynorphin." },
+  { id: "cb1_r", label: "CB1 / CB2\nReceptors", type: "receptor", size: 18, desc: "CB1: presynaptic in brain, retrograde signaling. CB2: immune cells, anti-inflammatory. Endocannabinoid system." },
+  { id: "nmda_r", label: "NMDA\nReceptors", type: "receptor", size: 18, desc: "Glutamate receptor. Voltage-gated Mg²⁺ block, Ca²⁺ permeable. Coincidence detector for LTP / Hebbian learning." },
+  { id: "gabaa_r", label: "GABA-A\nReceptors", type: "receptor", size: 18, desc: "Fast inhibitory ionotropic receptor. Cl⁻ channel. Target of benzodiazepines, barbiturates, alcohol, neurosteroids." },
+
+  // ── Activities ──
+  { id: "exercise", label: "Exercise", type: "activity", size: 26, desc: "Aerobic and resistance training. Cascading neurochemical release. Duration and intensity modulate different pathways." },
+  { id: "sleep", label: "Sleep", type: "activity", size: 26, desc: "NREM: glymphatic clearance, memory consolidation, growth hormone. REM: emotional processing, ACh-driven dreaming." },
+  { id: "meditation", label: "Meditation", type: "activity", size: 20, desc: "Focused attention or open monitoring. Prefrontal regulation of amygdala, vagal tone, stress axis modulation." },
+  { id: "social", label: "Social\nBonding", type: "activity", size: 22, desc: "Positive social interaction, touch, eye contact, deep conversation. Activates reward and affiliation circuits." },
+  { id: "sunlight", label: "Sunlight\nExposure", type: "activity", size: 22, desc: "Morning light via ipRGCs → SCN. Cortisol awakening response, melatonin suppression, serotonin synthesis." },
+  { id: "cold", label: "Cold\nExposure", type: "activity", size: 18, desc: "Cold water/air. Sympathetic activation, norepinephrine 2-3x, sustained dopamine elevation. Brown fat thermogenesis." },
+  { id: "eating", label: "Eating", type: "activity", size: 20, desc: "Macronutrient-dependent effects. Carbs → insulin → tryptophan → serotonin. Palatable food → dopamine. Protein → tyrosine." },
+  { id: "sex", label: "Sexual\nActivity", type: "activity", size: 18, desc: "Dopamine ramp during arousal → oxytocin/endorphin at climax → prolactin refractory → serotonin satisfaction." },
+  { id: "music", label: "Music", type: "activity", size: 16, desc: "Anticipation/resolution cycles activate reward prediction. 'Chills' correlate with striatal dopamine release." },
+  { id: "stress", label: "Chronic\nStress", type: "activity", size: 24, desc: "Sustained HPA axis. Hippocampal atrophy, prefrontal impairment, amygdala hypertrophy. Distinct from acute stress." },
+  { id: "breathing", label: "Breathwork", type: "activity", size: 16, desc: "Slow breathing → vagal afferents → NTS → locus coeruleus modulation. Physiological sighs reset CO₂ sensitivity." },
+  { id: "caffeine", label: "Caffeine", type: "activity", size: 20, desc: "Adenosine A1/A2A receptor antagonist. Blocks sleep pressure signal. Downstream: increased dopamine, norepinephrine, cortisol." },
+  { id: "alcohol", label: "Alcohol", type: "activity", size: 20, desc: "GABA-A potentiator, glutamate/NMDA antagonist, dopamine releaser, endorphin trigger. Acute anxiolysis, chronic neuroadaptation." },
+];
+
+const edges = [
+  // ═══ ACTIVITIES → NEUROCHEMICALS ═══
+
+  // Exercise
+  { source: "exercise", target: "dopamine", type: "excitatory", label: "increases" },
+  { source: "exercise", target: "serotonin", type: "excitatory", label: "increases" },
+  { source: "exercise", target: "endorphins", type: "excitatory", label: "releases" },
+  { source: "exercise", target: "norepinephrine", type: "excitatory", label: "increases" },
+  { source: "exercise", target: "bdnf", type: "excitatory", label: "upregulates" },
+  { source: "exercise", target: "anandamide", type: "excitatory", label: "runner's high" },
+  { source: "exercise", target: "testosterone", type: "excitatory", label: "acute boost" },
+  { source: "exercise", target: "cortisol", type: "modulatory", label: "acute↑ chronic↓" },
+  // Feedback: dopamine motivates exercise
+  { source: "dopamine", target: "exercise", type: "excitatory", label: "motivates" },
+
+  // Sleep
+  { source: "sleep", target: "melatonin", type: "modulatory", label: "consolidates" },
+  { source: "sleep", target: "cortisol", type: "inhibitory", label: "resets rhythm" },
+  { source: "sleep", target: "gaba", type: "excitatory", label: "NREM drive" },
+  { source: "sleep", target: "acetylcholine", type: "modulatory", label: "REM bursts" },
+  { source: "sleep", target: "bdnf", type: "excitatory", label: "restores" },
+  { source: "sleep", target: "adenosine", type: "inhibitory", label: "clears" },
+  { source: "sleep", target: "histamine", type: "inhibitory", label: "suppresses" },
+  // Feedback: adenosine drives sleep
+  { source: "adenosine", target: "sleep", type: "excitatory", label: "sleep pressure" },
+  // Melatonin promotes sleep
+  { source: "melatonin", target: "sleep", type: "excitatory", label: "promotes" },
+
+  // Meditation
+  { source: "meditation", target: "gaba", type: "excitatory", label: "increases" },
+  { source: "meditation", target: "serotonin", type: "excitatory", label: "increases" },
+  { source: "meditation", target: "cortisol", type: "inhibitory", label: "reduces" },
+  { source: "meditation", target: "norepinephrine", type: "inhibitory", label: "calms" },
+  { source: "meditation", target: "acetylcholine", type: "excitatory", label: "attention" },
+
+  // Social bonding
+  { source: "social", target: "oxytocin", type: "excitatory", label: "releases" },
+  { source: "social", target: "serotonin", type: "excitatory", label: "increases" },
+  { source: "social", target: "dopamine", type: "excitatory", label: "reward" },
+  { source: "social", target: "endorphins", type: "excitatory", label: "laughter/touch" },
+  { source: "social", target: "vasopressin", type: "excitatory", label: "bonding" },
+  // Feedback: oxytocin promotes social behavior
+  { source: "oxytocin", target: "social", type: "excitatory", label: "approach" },
+
+  // Sunlight
+  { source: "sunlight", target: "serotonin", type: "excitatory", label: "synthesis" },
+  { source: "sunlight", target: "melatonin", type: "inhibitory", label: "suppresses" },
+  { source: "sunlight", target: "cortisol", type: "excitatory", label: "CAR pulse" },
+  { source: "sunlight", target: "dopamine", type: "excitatory", label: "retinal DA" },
+
+  // Cold
+  { source: "cold", target: "norepinephrine", type: "excitatory", label: "2-3× spike" },
+  { source: "cold", target: "dopamine", type: "excitatory", label: "sustained ↑" },
+  { source: "cold", target: "adrenaline", type: "excitatory", label: "triggers" },
+
+  // Eating
+  { source: "eating", target: "insulin", type: "excitatory", label: "triggers" },
+  { source: "eating", target: "dopamine", type: "excitatory", label: "palatability" },
+  { source: "eating", target: "serotonin", type: "excitatory", label: "tryptophan" },
+  { source: "eating", target: "histamine", type: "excitatory", label: "gut release" },
+  // Feedback: dopamine/serotonin regulate appetite
+  { source: "serotonin", target: "eating", type: "inhibitory", label: "satiety signal" },
+
+  // Sex
+  { source: "sex", target: "dopamine", type: "excitatory", label: "arousal ramp" },
+  { source: "sex", target: "oxytocin", type: "excitatory", label: "orgasm release" },
+  { source: "sex", target: "endorphins", type: "excitatory", label: "releases" },
+  { source: "sex", target: "prolactin", type: "excitatory", label: "post-orgasm" },
+  { source: "sex", target: "vasopressin", type: "excitatory", label: "pair bonding" },
+
+  // Music
+  { source: "music", target: "dopamine", type: "excitatory", label: "reward prediction" },
+  { source: "music", target: "endorphins", type: "excitatory", label: "releases" },
+  { source: "music", target: "cortisol", type: "inhibitory", label: "reduces" },
+
+  // Chronic stress
+  { source: "stress", target: "crh", type: "excitatory", label: "activates HPA" },
+  { source: "stress", target: "cortisol", type: "excitatory", label: "elevates" },
+  { source: "stress", target: "norepinephrine", type: "excitatory", label: "elevates" },
+  { source: "stress", target: "adrenaline", type: "excitatory", label: "triggers" },
+  { source: "stress", target: "serotonin", type: "inhibitory", label: "depletes" },
+  { source: "stress", target: "dopamine", type: "inhibitory", label: "blunts" },
+  { source: "stress", target: "bdnf", type: "inhibitory", label: "suppresses" },
+  { source: "stress", target: "dynorphin", type: "excitatory", label: "dysphoria" },
+  { source: "stress", target: "histamine", type: "excitatory", label: "immune ↑" },
+  // Feedback: cortisol perpetuates stress
+  { source: "cortisol", target: "stress", type: "excitatory", label: "sensitizes" },
+
+  // Breathwork
+  { source: "breathing", target: "gaba", type: "excitatory", label: "increases" },
+  { source: "breathing", target: "norepinephrine", type: "inhibitory", label: "vagal calming" },
+  { source: "breathing", target: "acetylcholine", type: "excitatory", label: "vagal tone" },
+
+  // Caffeine
+  { source: "caffeine", target: "adenosine", type: "inhibitory", label: "blocks A1/A2A" },
+  { source: "caffeine", target: "dopamine", type: "excitatory", label: "disinhibits" },
+  { source: "caffeine", target: "norepinephrine", type: "excitatory", label: "increases" },
+  { source: "caffeine", target: "cortisol", type: "excitatory", label: "elevates" },
+  { source: "caffeine", target: "adrenaline", type: "excitatory", label: "triggers" },
+
+  // Alcohol
+  { source: "alcohol", target: "gabaa_r", type: "excitatory", label: "potentiates" },
+  { source: "alcohol", target: "gaba", type: "excitatory", label: "enhances" },
+  { source: "alcohol", target: "glutamate", type: "inhibitory", label: "suppresses" },
+  { source: "alcohol", target: "dopamine", type: "excitatory", label: "acute release" },
+  { source: "alcohol", target: "endorphins", type: "excitatory", label: "releases" },
+  { source: "alcohol", target: "cortisol", type: "excitatory", label: "elevates" },
+  { source: "alcohol", target: "serotonin", type: "modulatory", label: "acute↑ chronic↓" },
+
+  // ═══ BIOCHEMICAL CONVERSIONS ═══
+  { source: "serotonin", target: "melatonin", type: "converts", label: "NAT + HIOMT" },
+  { source: "dopamine", target: "norepinephrine", type: "converts", label: "DβH enzyme" },
+  { source: "norepinephrine", target: "adrenaline", type: "converts", label: "PNMT enzyme" },
+  { source: "glutamate", target: "gaba", type: "converts", label: "GAD enzyme" },
+  { source: "crh", target: "cortisol", type: "converts", label: "HPA cascade" },
+
+  // ═══ HORMONE → NEUROTRANSMITTER ═══
+  { source: "cortisol", target: "serotonin", type: "inhibitory", label: "suppresses" },
+  { source: "cortisol", target: "dopamine", type: "inhibitory", label: "impairs" },
+  { source: "cortisol", target: "gaba", type: "inhibitory", label: "reduces" },
+  { source: "cortisol", target: "glutamate", type: "excitatory", label: "excitotoxicity" },
+  { source: "cortisol", target: "bdnf", type: "inhibitory", label: "suppresses" },
+  { source: "cortisol", target: "acetylcholine", type: "inhibitory", label: "impairs" },
+  
+  { source: "testosterone", target: "dopamine", type: "excitatory", label: "receptor density" },
+  { source: "testosterone", target: "vasopressin", type: "excitatory", label: "enhances" },
+  
+  { source: "estrogen", target: "serotonin", type: "excitatory", label: "upregulates 5-HT" },
+  { source: "estrogen", target: "dopamine", type: "modulatory", label: "modulates D2" },
+  { source: "estrogen", target: "bdnf", type: "excitatory", label: "potentiates" },
+  { source: "estrogen", target: "acetylcholine", type: "excitatory", label: "enhances" },
+  { source: "estrogen", target: "gaba", type: "modulatory", label: "neurosteroid" },
+
+  { source: "oxytocin", target: "serotonin", type: "excitatory", label: "enhances" },
+  { source: "oxytocin", target: "dopamine", type: "excitatory", label: "VTA pathway" },
+  { source: "oxytocin", target: "cortisol", type: "inhibitory", label: "buffers stress" },
+  { source: "oxytocin", target: "gaba", type: "excitatory", label: "anxiolytic" },
+
+  { source: "vasopressin", target: "cortisol", type: "excitatory", label: "HPA potentiation" },
+  { source: "vasopressin", target: "norepinephrine", type: "excitatory", label: "arousal" },
+
+  { source: "insulin", target: "serotonin", type: "excitatory", label: "tryptophan BBB" },
+  { source: "insulin", target: "dopamine", type: "modulatory", label: "resistance impairs" },
+
+  { source: "prolactin", target: "dopamine", type: "inhibitory", label: "suppresses" },
+  // Feedback: dopamine tonically suppresses prolactin
+  { source: "dopamine", target: "prolactin", type: "inhibitory", label: "tonic inhibition" },
+
+  { source: "thyroid", target: "dopamine", type: "excitatory", label: "receptor sensitivity" },
+  { source: "thyroid", target: "serotonin", type: "excitatory", label: "receptor sensitivity" },
+  { source: "thyroid", target: "norepinephrine", type: "excitatory", label: "potentiates" },
+  { source: "thyroid", target: "gaba", type: "modulatory", label: "modulates" },
+
+  { source: "bdnf", target: "glutamate", type: "excitatory", label: "LTP support" },
+  { source: "bdnf", target: "serotonin", type: "excitatory", label: "neurogenesis" },
+  { source: "bdnf", target: "dopamine", type: "excitatory", label: "neuron survival" },
+  { source: "bdnf", target: "gaba", type: "excitatory", label: "interneuron health" },
+
+  { source: "melatonin", target: "gaba", type: "excitatory", label: "enhances" },
+  { source: "melatonin", target: "dopamine", type: "inhibitory", label: "suppresses" },
+  { source: "melatonin", target: "cortisol", type: "inhibitory", label: "counterphase" },
+
+  // ═══ NEUROTRANSMITTER → RECEPTOR ═══
+  { source: "endorphins", target: "opioid_r", type: "excitatory", label: "μ/δ agonist" },
+  { source: "dynorphin", target: "opioid_r", type: "modulatory", label: "κ agonist" },
+  { source: "substanceP", target: "opioid_r", type: "modulatory", label: "pain gating" },
+  { source: "anandamide", target: "cb1_r", type: "excitatory", label: "partial agonist" },
+  { source: "glutamate", target: "nmda_r", type: "excitatory", label: "co-agonist" },
+  { source: "gaba", target: "gabaa_r", type: "excitatory", label: "Cl⁻ channel" },
+
+  // ═══ RECEPTOR → DOWNSTREAM ═══
+  { source: "opioid_r", target: "dopamine", type: "excitatory", label: "VTA disinhibition" },
+  { source: "opioid_r", target: "gaba", type: "inhibitory", label: "interneuron inhibition" },
+  { source: "opioid_r", target: "substanceP", type: "inhibitory", label: "pain suppression" },
+
+  { source: "cb1_r", target: "gaba", type: "inhibitory", label: "presynaptic" },
+  { source: "cb1_r", target: "glutamate", type: "inhibitory", label: "presynaptic" },
+  { source: "cb1_r", target: "dopamine", type: "modulatory", label: "indirect" },
+
+  { source: "nmda_r", target: "bdnf", type: "excitatory", label: "Ca²⁺ → CREB" },
+
+  { source: "gabaa_r", target: "glutamate", type: "inhibitory", label: "network inhibition" },
+  { source: "gabaa_r", target: "norepinephrine", type: "inhibitory", label: "sedation" },
+  { source: "gabaa_r", target: "histamine", type: "inhibitory", label: "sedation" },
+
+  // ═══ NEUROTRANSMITTER CROSS-TALK ═══
+  { source: "gaba", target: "dopamine", type: "inhibitory", label: "VTA inhibition" },
+  { source: "serotonin", target: "dopamine", type: "inhibitory", label: "DRN → VTA" },
+  { source: "dopamine", target: "serotonin", type: "modulatory", label: "reciprocal" },
+  { source: "acetylcholine", target: "dopamine", type: "excitatory", label: "striatal mod" },
+  { source: "dopamine", target: "dynorphin", type: "excitatory", label: "rebound signal" },
+  { source: "dopamine", target: "acetylcholine", type: "inhibitory", label: "D2 suppression" },
+  { source: "histamine", target: "acetylcholine", type: "excitatory", label: "cortical arousal" },
+  { source: "histamine", target: "norepinephrine", type: "excitatory", label: "wakefulness" },
+  { source: "adenosine", target: "dopamine", type: "inhibitory", label: "A2A-D2 hetero" },
+  { source: "adenosine", target: "glutamate", type: "inhibitory", label: "presynaptic" },
+  { source: "adenosine", target: "acetylcholine", type: "inhibitory", label: "reduces" },
+  { source: "adenosine", target: "histamine", type: "inhibitory", label: "sleep drive" },
+  { source: "norepinephrine", target: "acetylcholine", type: "excitatory", label: "arousal" },
+];
+
+// ═══════════════════════════════════════════════
+// RENDERING
+// ═══════════════════════════════════════════════
+
+const colorMap = {
+  neurotransmitter: "#e8546e",
+  hormone: "#4da6e8",
+  activity: "#45c488",
+  receptor: "#c084e4",
+};
+
+const edgeColors = {
+  excitatory: { base: "rgba(69, 196, 136, 0.40)", hi: "rgba(69, 196, 136, 0.90)" },
+  inhibitory: { base: "rgba(232, 84, 110, 0.35)", hi: "rgba(232, 84, 110, 0.85)" },
+  modulatory: { base: "rgba(192, 132, 228, 0.30)", hi: "rgba(192, 132, 228, 0.80)" },
+  converts:   { base: "rgba(77, 166, 232, 0.35)", hi: "rgba(77, 166, 232, 0.85)" },
+};
+
+const W = window.innerWidth;
+const H = window.innerHeight;
+
+const svg = d3.select("#graph").attr("width", W).attr("height", H);
+
+const defs = svg.append("defs");
+
+// Arrowheads for each edge type, normal and highlighted
+Object.entries(edgeColors).forEach(([type, colors]) => {
+  ["base", "hi"].forEach(variant => {
+    const id = variant === "base" ? `arr-${type}` : `arr-${type}-hi`;
+    defs.append("marker")
+      .attr("id", id)
+      .attr("viewBox", "0 -5 12 10")
+      .attr("refX", 12)
+      .attr("refY", 0)
+      .attr("markerWidth", variant === "hi" ? 10 : 8)
+      .attr("markerHeight", variant === "hi" ? 10 : 8)
+      .attr("orient", "auto")
+      .append("path")
+      .attr("d", "M0,-4.5L12,0L0,4.5L3,0Z")
+      .attr("fill", colors[variant]);
+  });
+});
+
+// Glow
+const glow = defs.append("filter").attr("id", "glow");
+glow.append("feGaussianBlur").attr("stdDeviation", "4").attr("result", "b");
+glow.append("feMerge").selectAll("feMergeNode").data(["b","SourceGraphic"]).enter().append("feMergeNode").attr("in", d => d);
+
+// Subtle grain
+const grain = defs.append("filter").attr("id", "grain").attr("x", "0%").attr("y", "0%").attr("width", "100%").attr("height", "100%");
+grain.append("feTurbulence").attr("type","fractalNoise").attr("baseFrequency","0.7").attr("numOctaves","3").attr("stitchTiles","stitch");
+grain.append("feColorMatrix").attr("type","saturate").attr("values","0");
+
+svg.append("rect").attr("width", W).attr("height", H).attr("fill","#08090d").attr("opacity",0.3).attr("filter","url(#grain)");
+
+const g = svg.append("g");
+
+svg.call(d3.zoom().scaleExtent([0.15, 5]).on("zoom", e => g.attr("transform", e.transform)));
+
+// Build edge pair lookup for curvature
+const edgePairCounts = {};
+edges.forEach(e => {
+  const k1 = `${e.source}-${e.target}`;
+  const k2 = `${e.target}-${e.source}`;
+  if (!edgePairCounts[k1]) edgePairCounts[k1] = 0;
+  edgePairCounts[k1]++;
+});
+// Check if reverse exists
+const hasBidirectional = {};
+edges.forEach(e => {
+  const rev = `${e.target}-${e.source}`;
+  if (edgePairCounts[rev]) {
+    hasBidirectional[`${e.source}-${e.target}`] = true;
+  }
+});
+
+// Simulation
+const simulation = d3.forceSimulation(nodes)
+  .force("link", d3.forceLink(edges).id(d => d.id).distance(130).strength(0.25))
+  .force("charge", d3.forceManyBody().strength(-500))
+  .force("center", d3.forceCenter(W/2, H/2))
+  .force("collision", d3.forceCollide().radius(d => d.size + 16))
+  .force("x", d3.forceX(W/2).strength(0.035))
+  .force("y", d3.forceY(H/2).strength(0.035));
+
+// Links
+const linkG = g.append("g");
+const link = linkG.selectAll("path")
+  .data(edges)
+  .enter().append("path")
+  .attr("fill", "none")
+  .attr("stroke", d => edgeColors[d.type].base)
+  .attr("stroke-width", 1.3)
+  .attr("marker-end", d => `url(#arr-${d.type})`)
+  .attr("stroke-dasharray", d => d.type === "modulatory" ? "5,3" : d.type === "converts" ? "2,3" : "none")
+  .attr("opacity", 0.75);
+
+// Edge labels (hidden by default)
+const edgeLabelG = g.append("g");
+const edgeLabel = edgeLabelG.selectAll("text")
+  .data(edges)
+  .enter().append("text")
+  .attr("font-size", "7.5px")
+  .attr("fill", "rgba(255,255,255,0.0)")
+  .attr("text-anchor", "middle")
+  .attr("font-family", "'DM Sans',sans-serif")
+  .attr("font-weight", 300)
+  .attr("pointer-events", "none")
+  .text(d => d.label);
+
+// Nodes
+const nodeG = g.append("g");
+const node = nodeG.selectAll("g")
+  .data(nodes)
+  .enter().append("g")
+  .attr("cursor", "grab")
+  .call(d3.drag()
+    .on("start", (e,d) => { if(!e.active) simulation.alphaTarget(0.3).restart(); d.fx=d.x; d.fy=d.y; })
+    .on("drag", (e,d) => { d.fx=e.x; d.fy=e.y; })
+    .on("end", (e,d) => { if(!e.active) simulation.alphaTarget(0); d.fx=null; d.fy=null; }));
+
+// Glow ring
+node.append("circle")
+  .attr("r", d => d.size + 5)
+  .attr("fill", d => colorMap[d.type])
+  .attr("opacity", 0.06)
+  .attr("filter", "url(#glow)");
+
+// Main circle
+node.append("circle")
+  .attr("class", "main-circle")
+  .attr("r", d => d.size)
+  .attr("fill", d => `color-mix(in srgb, ${colorMap[d.type]} 12%, #0c0e14)`)
+  .attr("stroke", d => colorMap[d.type])
+  .attr("stroke-width", 1.5)
+  .attr("stroke-opacity", 0.55);
+
+// Labels
+node.each(function(d) {
+  const el = d3.select(this);
+  const lines = d.label.split("\n");
+  const fs = d.size < 17 ? 7 : d.size < 21 ? 8 : d.size < 25 ? 9 : 10;
+  lines.forEach((line, i) => {
+    el.append("text")
+      .attr("text-anchor", "middle")
+      .attr("dy", `${(i - (lines.length-1)/2) * 1.15}em`)
+      .attr("fill", "#e2e0dc")
+      .attr("font-size", fs + "px")
+      .attr("font-weight", 500)
+      .attr("font-family", "'DM Sans',sans-serif")
+      .attr("pointer-events", "none")
+      .text(line);
+  });
+});
+
+// Count connections per node for tooltip
+const connectionCounts = {};
+nodes.forEach(n => connectionCounts[n.id] = { out: 0, in: 0 });
+edges.forEach(e => {
+  const sid = typeof e.source === "object" ? e.source.id : e.source;
+  const tid = typeof e.target === "object" ? e.target.id : e.target;
+  if (connectionCounts[sid]) connectionCounts[sid].out++;
+  if (connectionCounts[tid]) connectionCounts[tid].in++;
+});
+
+// Tooltip
+const tooltip = d3.select("#tooltip");
+
+node.on("mouseenter", (event, d) => {
+  const cc = connectionCounts[d.id];
+  tooltip.style("display", "block")
+    .style("left", (event.clientX + 18) + "px")
+    .style("top", (event.clientY - 12) + "px");
+  tooltip.select(".tt-name").text(d.label.replace(/\n/g, " ")).style("color", colorMap[d.type]);
+  tooltip.select(".tt-type").text(d.type);
+  tooltip.select(".tt-desc").text(d.desc);
+  tooltip.select(".tt-connections").html(`${cc.out} outgoing · ${cc.in} incoming · ${cc.out + cc.in} total`);
+
+  // Highlight connected
+  const connected = new Set([d.id]);
+  edges.forEach(e => {
+    const sid = e.source.id || e.source;
+    const tid = e.target.id || e.target;
+    if (sid === d.id) connected.add(tid);
+    if (tid === d.id) connected.add(sid);
+  });
+
+  link
+    .attr("opacity", l => (l.source.id===d.id || l.target.id===d.id) ? 1 : 0.04)
+    .attr("stroke-width", l => (l.source.id===d.id || l.target.id===d.id) ? 2.5 : 0.6)
+    .attr("stroke", l => (l.source.id===d.id || l.target.id===d.id) ? edgeColors[l.type].hi : edgeColors[l.type].base)
+    .attr("marker-end", l => (l.source.id===d.id || l.target.id===d.id) ? `url(#arr-${l.type}-hi)` : `url(#arr-${l.type})`);
+
+  edgeLabel
+    .attr("fill", l => (l.source.id===d.id || l.target.id===d.id) ? "rgba(255,255,255,0.75)" : "rgba(255,255,255,0.0)");
+
+  node.select(".main-circle").attr("opacity", n => connected.has(n.id) ? 1 : 0.1);
+  node.selectAll("text").attr("opacity", function() {
+    return connected.has(d3.select(this.parentNode).datum().id) ? 1 : 0.1;
+  });
+})
+.on("mousemove", event => {
+  tooltip.style("left", (event.clientX+18)+"px").style("top", (event.clientY-12)+"px");
+})
+.on("mouseleave", () => {
+  tooltip.style("display","none");
+  link.attr("opacity",0.75).attr("stroke-width",1.3)
+    .attr("stroke", d => edgeColors[d.type].base)
+    .attr("marker-end", d => `url(#arr-${d.type})`);
+  edgeLabel.attr("fill","rgba(255,255,255,0.0)");
+  node.select(".main-circle").attr("opacity",1);
+  node.selectAll("text").attr("opacity",1);
+});
+
+// Link path with curvature for bidirectional edges
+function linkPath(d) {
+  const dx = d.target.x - d.source.x;
+  const dy = d.target.y - d.source.y;
+  const dist = Math.sqrt(dx*dx + dy*dy) || 1;
+  const key = `${d.source.id}-${d.target.id}`;
+  const isBi = hasBidirectional[key];
+
+  // Offset for bidirectional
+  const curveAmount = isBi ? 0.25 : 0.12;
+  const dr = dist / (2 * curveAmount);
+
+  // Shorten arrow to not overlap with node
+  const targetR = d.target.size + 8;
+  const ratio = (dist - targetR) / dist;
+  const tx = d.source.x + dx * ratio;
+  const ty = d.source.y + dy * ratio;
+
+  const sourceR = d.source.size + 4;
+  const sRatio = sourceR / dist;
+  const sx = d.source.x + dx * sRatio;
+  const sy = d.source.y + dy * sRatio;
+
+  return `M${sx},${sy}A${dr},${dr} 0 0,1 ${tx},${ty}`;
+}
+
+// Edge label positioning along curve
+function edgeLabelPos(d) {
+  const mx = (d.source.x + d.target.x) / 2;
+  const my = (d.source.y + d.target.y) / 2;
+  const dx = d.target.x - d.source.x;
+  const dy = d.target.y - d.source.y;
+  const dist = Math.sqrt(dx*dx + dy*dy) || 1;
+  const key = `${d.source.id}-${d.target.id}`;
+  const isBi = hasBidirectional[key];
+  const offset = isBi ? 18 : 10;
+  // Perpendicular offset
+  const nx = -dy / dist * offset;
+  const ny = dx / dist * offset;
+  return { x: mx + nx, y: my + ny };
+}
+
+simulation.on("tick", () => {
+  link.attr("d", linkPath);
+  edgeLabel.each(function(d) {
+    const p = edgeLabelPos(d);
+    d3.select(this).attr("x", p.x).attr("y", p.y);
+  });
+  node.attr("transform", d => `translate(${d.x},${d.y})`);
+});
+
+// Update stats
+const totalEdges = edges.length;
+const biEdges = Object.keys(hasBidirectional).length / 2;
+document.getElementById("info-panel").innerHTML =
+  `${nodes.length} nodes · ${totalEdges} connections<br>${Math.round(biEdges)} bidirectional pairs`;
+
+// Filter controls
+let activeFilter = "all";
+d3.selectAll(".ctrl-btn").on("click", function() {
+  d3.selectAll(".ctrl-btn").classed("active", false);
+  d3.select(this).classed("active", true);
+  activeFilter = this.dataset.filter;
+  link.attr("display", d => (activeFilter === "all" || d.type === activeFilter) ? "block" : "none");
+});
+
+// Legend type highlight
+d3.selectAll(".legend-item").on("click", function() {
+  const type = this.dataset.type;
+  node.select(".main-circle").transition().duration(300).attr("opacity", d => d.type===type ? 1 : 0.08);
+  node.selectAll("text").transition().duration(300).attr("opacity", function() {
+    return d3.select(this.parentNode).datum().type===type ? 1 : 0.08;
+  });
+  setTimeout(() => {
+    node.select(".main-circle").transition().duration(500).delay(2500).attr("opacity",1);
+    node.selectAll("text").transition().duration(500).delay(2500).attr("opacity",1);
+  }, 0);
+});
+
+// Resize
+window.addEventListener("resize", () => {
+  const w = window.innerWidth, h = window.innerHeight;
+  svg.attr("width",w).attr("height",h);
+  simulation.force("center", d3.forceCenter(w/2,h/2)).alpha(0.1).restart();
+});
+</script>
+</body>
+</html>
