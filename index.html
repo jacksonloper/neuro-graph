@@ -210,6 +210,12 @@
     margin-bottom: 4px;
     color: var(--text);
     cursor: pointer;
+    outline: none;
+  }
+  #sources-panel .sp-title:focus-visible {
+    outline: 1px solid rgba(77,166,232,0.6);
+    outline-offset: 2px;
+    border-radius: 4px;
   }
   #sources-panel .sp-list {
     display: none;
@@ -278,11 +284,11 @@
 
 <svg id="graph"></svg>
 <div id="sources-panel">
-  <div class="sp-title">📚 Sources</div>
-  <div class="sp-list"></div>
+  <div class="sp-title" tabindex="0" role="button" aria-expanded="false" aria-controls="sp-list" aria-label="Sources">📚 Sources</div>
+  <div class="sp-list" id="sp-list" role="region"></div>
 </div>
 
-<div id="edge-tooltip">
+<div id="edge-tooltip" role="tooltip" aria-live="polite">
   <div class="et-label"></div>
   <div class="et-source"></div>
   <div class="et-book"></div>
@@ -926,8 +932,14 @@ Object.values(textbooks).forEach(book => {
   spList.appendChild(item);
 });
 
-document.querySelector("#sources-panel .sp-title").addEventListener("click", () => {
-  spList.classList.toggle("open");
+const spTitle = document.querySelector("#sources-panel .sp-title");
+function toggleSources() {
+  const isOpen = spList.classList.toggle("open");
+  spTitle.setAttribute("aria-expanded", isOpen);
+}
+spTitle.addEventListener("click", toggleSources);
+spTitle.addEventListener("keydown", (e) => {
+  if (e.key === "Enter" || e.key === " ") { e.preventDefault(); toggleSources(); }
 });
 
 </script>
