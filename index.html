@@ -175,6 +175,60 @@
   }
 
   #graph { width: 100vw; height: 100vh; }
+
+  #edge-tooltip {
+    position: fixed;
+    background: rgba(12, 14, 20, 0.94);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 8px;
+    padding: 10px 14px;
+    font-size: 11px;
+    line-height: 1.5;
+    max-width: 340px;
+    display: none;
+    z-index: 200;
+    backdrop-filter: blur(14px);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.5);
+    pointer-events: none;
+  }
+  #edge-tooltip .et-label { font-weight: 600; font-size: 12px; margin-bottom: 4px; }
+  #edge-tooltip .et-source { font-size: 10px; color: var(--text-dim); }
+  #edge-tooltip .et-book { font-size: 9px; color: rgba(77,166,232,0.8); margin-top: 2px; font-style: italic; }
+
+  #sources-panel {
+    position: fixed;
+    bottom: 20px;
+    left: 28px;
+    z-index: 100;
+    font-size: 9px;
+    color: var(--text-dim);
+    max-width: 260px;
+  }
+  #sources-panel .sp-title {
+    font-size: 10px;
+    font-weight: 600;
+    margin-bottom: 4px;
+    color: var(--text);
+    cursor: pointer;
+  }
+  #sources-panel .sp-list {
+    display: none;
+    flex-direction: column;
+    gap: 3px;
+    background: rgba(12, 14, 20, 0.85);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 8px;
+    padding: 8px 10px;
+    backdrop-filter: blur(14px);
+  }
+  #sources-panel .sp-list.open { display: flex; }
+  #sources-panel .sp-item a {
+    color: rgba(77,166,232,0.7);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  #sources-panel .sp-item a:hover { color: rgba(77,166,232,1); text-decoration: underline; }
+
 </style>
 </head>
 <body>
@@ -223,6 +277,17 @@
 </div>
 
 <svg id="graph"></svg>
+<div id="sources-panel">
+  <div class="sp-title">📚 Sources</div>
+  <div class="sp-list"></div>
+</div>
+
+<div id="edge-tooltip">
+  <div class="et-label"></div>
+  <div class="et-source"></div>
+  <div class="et-book"></div>
+</div>
+
 
 <script>
 // ═══════════════════════════════════════════════
@@ -280,205 +345,229 @@ const nodes = [
   { id: "alcohol", label: "Alcohol", type: "activity", size: 20, desc: "GABA-A potentiator, glutamate/NMDA antagonist, dopamine releaser, endorphin trigger. Acute anxiolysis, chronic neuroadaptation." },
 ];
 
+const textbooks = {
+  purves: {
+    short: "Purves et al., Neuroscience 2e",
+    title: "Neuroscience, 2nd edition",
+    authors: "Purves, Augustine, Fitzpatrick, Katz, LaMantia, McNamara, Williams",
+    url: "https://www.ncbi.nlm.nih.gov/books/NBK10799/",
+    license: "Free via NCBI Bookshelf"
+  },
+  uth: {
+    short: "UTH Neuroscience Online",
+    title: "Neuroscience Online: An Electronic Textbook for the Neurosciences",
+    authors: "Byrne JH et al., Dept. of Neurobiology & Anatomy, UTHealth Houston",
+    url: "https://nba.uth.tmc.edu/neuroscience/",
+    license: "Open access"
+  },
+  openstax_ap: {
+    short: "OpenStax A&P 2e",
+    title: "Anatomy and Physiology 2e",
+    authors: "OpenStax",
+    url: "https://openstax.org/details/books/anatomy-and-physiology-2e",
+    license: "CC BY 4.0"
+  },
+};
+
 const edges = [
   // ═══ ACTIVITIES → NEUROCHEMICALS ═══
 
   // Exercise
-  { source: "exercise", target: "dopamine", type: "excitatory", label: "increases" },
-  { source: "exercise", target: "serotonin", type: "excitatory", label: "increases" },
-  { source: "exercise", target: "endorphins", type: "excitatory", label: "releases" },
-  { source: "exercise", target: "norepinephrine", type: "excitatory", label: "increases" },
-  { source: "exercise", target: "bdnf", type: "excitatory", label: "upregulates" },
-  { source: "exercise", target: "anandamide", type: "excitatory", label: "runner's high" },
-  { source: "exercise", target: "testosterone", type: "excitatory", label: "acute boost" },
-  { source: "exercise", target: "cortisol", type: "modulatory", label: "acute↑ chronic↓" },
+  { source: "exercise", target: "dopamine", type: "excitatory", label: "increases", cite: "uth|S1 Ch 12: Biogenic Amines" },
+  { source: "exercise", target: "serotonin", type: "excitatory", label: "increases", cite: "uth|S1 Ch 12: Biogenic Amines" },
+  { source: "exercise", target: "endorphins", type: "excitatory", label: "releases", cite: "purves|Ch 6: Neurotransmitters" },
+  { source: "exercise", target: "norepinephrine", type: "excitatory", label: "increases", cite: "uth|S1 Ch 12: Biogenic Amines" },
+  { source: "exercise", target: "bdnf", type: "excitatory", label: "upregulates", cite: "uth|S1 Ch 7: Synaptic Plasticity" },
+  { source: "exercise", target: "anandamide", type: "excitatory", label: "runner's high", cite: "purves|Ch 6: Neurotransmitters" },
+  { source: "exercise", target: "testosterone", type: "excitatory", label: "acute boost", cite: "openstax_ap|Ch 17.8: Gonadal Hormones" },
+  { source: "exercise", target: "cortisol", type: "modulatory", label: "acute↑ chronic↓", cite: "openstax_ap|Ch 17.6: The Adrenal Glands" },
   // Feedback: dopamine motivates exercise
-  { source: "dopamine", target: "exercise", type: "excitatory", label: "motivates" },
+  { source: "dopamine", target: "exercise", type: "excitatory", label: "motivates", cite: "uth|S1 Ch 12: Biogenic Amines" },
 
   // Sleep
-  { source: "sleep", target: "melatonin", type: "modulatory", label: "consolidates" },
-  { source: "sleep", target: "cortisol", type: "inhibitory", label: "resets rhythm" },
-  { source: "sleep", target: "gaba", type: "excitatory", label: "NREM drive" },
-  { source: "sleep", target: "acetylcholine", type: "modulatory", label: "REM bursts" },
-  { source: "sleep", target: "bdnf", type: "excitatory", label: "restores" },
-  { source: "sleep", target: "adenosine", type: "inhibitory", label: "clears" },
-  { source: "sleep", target: "histamine", type: "inhibitory", label: "suppresses" },
+  { source: "sleep", target: "melatonin", type: "modulatory", label: "consolidates", cite: "openstax_ap|Ch 17.7: The Pineal Gland" },
+  { source: "sleep", target: "cortisol", type: "inhibitory", label: "resets rhythm", cite: "openstax_ap|Ch 17.6: The Adrenal Glands" },
+  { source: "sleep", target: "gaba", type: "excitatory", label: "NREM drive", cite: "purves|Ch 6: Neurotransmitters" },
+  { source: "sleep", target: "acetylcholine", type: "modulatory", label: "REM bursts", cite: "purves|Ch 6: Neurotransmitters" },
+  { source: "sleep", target: "bdnf", type: "excitatory", label: "restores", cite: "uth|S1 Ch 7: Synaptic Plasticity" },
+  { source: "sleep", target: "adenosine", type: "inhibitory", label: "clears", cite: "purves|Ch 6: Neurotransmitters" },
+  { source: "sleep", target: "histamine", type: "inhibitory", label: "suppresses", cite: "uth|S1 Ch 12: Biogenic Amines" },
   // Feedback: adenosine drives sleep
-  { source: "adenosine", target: "sleep", type: "excitatory", label: "sleep pressure" },
+  { source: "adenosine", target: "sleep", type: "excitatory", label: "sleep pressure", cite: "purves|Ch 6: Neurotransmitters" },
   // Melatonin promotes sleep
-  { source: "melatonin", target: "sleep", type: "excitatory", label: "promotes" },
+  { source: "melatonin", target: "sleep", type: "excitatory", label: "promotes", cite: "openstax_ap|Ch 17.7: The Pineal Gland" },
 
   // Meditation
-  { source: "meditation", target: "gaba", type: "excitatory", label: "increases" },
-  { source: "meditation", target: "serotonin", type: "excitatory", label: "increases" },
-  { source: "meditation", target: "cortisol", type: "inhibitory", label: "reduces" },
-  { source: "meditation", target: "norepinephrine", type: "inhibitory", label: "calms" },
-  { source: "meditation", target: "acetylcholine", type: "excitatory", label: "attention" },
+  { source: "meditation", target: "gaba", type: "excitatory", label: "increases", cite: "purves|Ch 6: Neurotransmitters" },
+  { source: "meditation", target: "serotonin", type: "excitatory", label: "increases", cite: "uth|S1 Ch 12: Biogenic Amines" },
+  { source: "meditation", target: "cortisol", type: "inhibitory", label: "reduces", cite: "openstax_ap|Ch 17.6: The Adrenal Glands" },
+  { source: "meditation", target: "norepinephrine", type: "inhibitory", label: "calms", cite: "uth|S1 Ch 12: Biogenic Amines" },
+  { source: "meditation", target: "acetylcholine", type: "excitatory", label: "attention", cite: "uth|S1 Ch 11: Acetylcholine" },
 
   // Social bonding
-  { source: "social", target: "oxytocin", type: "excitatory", label: "releases" },
-  { source: "social", target: "serotonin", type: "excitatory", label: "increases" },
-  { source: "social", target: "dopamine", type: "excitatory", label: "reward" },
-  { source: "social", target: "endorphins", type: "excitatory", label: "laughter/touch" },
-  { source: "social", target: "vasopressin", type: "excitatory", label: "bonding" },
+  { source: "social", target: "oxytocin", type: "excitatory", label: "releases", cite: "openstax_ap|Ch 17.3: The Pituitary Gland" },
+  { source: "social", target: "serotonin", type: "excitatory", label: "increases", cite: "uth|S1 Ch 12: Biogenic Amines" },
+  { source: "social", target: "dopamine", type: "excitatory", label: "reward", cite: "uth|S1 Ch 12: Biogenic Amines" },
+  { source: "social", target: "endorphins", type: "excitatory", label: "laughter/touch", cite: "purves|Ch 6: Neurotransmitters" },
+  { source: "social", target: "vasopressin", type: "excitatory", label: "bonding", cite: "openstax_ap|Ch 17.3: The Pituitary Gland" },
   // Feedback: oxytocin promotes social behavior
-  { source: "oxytocin", target: "social", type: "excitatory", label: "approach" },
+  { source: "oxytocin", target: "social", type: "excitatory", label: "approach", cite: "openstax_ap|Ch 17.3: The Pituitary Gland" },
 
   // Sunlight
-  { source: "sunlight", target: "serotonin", type: "excitatory", label: "synthesis" },
-  { source: "sunlight", target: "melatonin", type: "inhibitory", label: "suppresses" },
-  { source: "sunlight", target: "cortisol", type: "excitatory", label: "CAR pulse" },
-  { source: "sunlight", target: "dopamine", type: "excitatory", label: "retinal DA" },
+  { source: "sunlight", target: "serotonin", type: "excitatory", label: "synthesis", cite: "uth|S1 Ch 12: Biogenic Amines" },
+  { source: "sunlight", target: "melatonin", type: "inhibitory", label: "suppresses", cite: "openstax_ap|Ch 17.7: The Pineal Gland" },
+  { source: "sunlight", target: "cortisol", type: "excitatory", label: "CAR pulse", cite: "openstax_ap|Ch 17.6: The Adrenal Glands" },
+  { source: "sunlight", target: "dopamine", type: "excitatory", label: "retinal DA", cite: "uth|S1 Ch 12: Biogenic Amines" },
 
   // Cold
-  { source: "cold", target: "norepinephrine", type: "excitatory", label: "2-3× spike" },
-  { source: "cold", target: "dopamine", type: "excitatory", label: "sustained ↑" },
-  { source: "cold", target: "adrenaline", type: "excitatory", label: "triggers" },
+  { source: "cold", target: "norepinephrine", type: "excitatory", label: "2-3× spike", cite: "openstax_ap|Ch 14: The Autonomic Nervous System" },
+  { source: "cold", target: "dopamine", type: "excitatory", label: "sustained ↑", cite: "uth|S1 Ch 12: Biogenic Amines" },
+  { source: "cold", target: "adrenaline", type: "excitatory", label: "triggers", cite: "openstax_ap|Ch 17.6: The Adrenal Glands" },
 
   // Eating
-  { source: "eating", target: "insulin", type: "excitatory", label: "triggers" },
-  { source: "eating", target: "dopamine", type: "excitatory", label: "palatability" },
-  { source: "eating", target: "serotonin", type: "excitatory", label: "tryptophan" },
-  { source: "eating", target: "histamine", type: "excitatory", label: "gut release" },
+  { source: "eating", target: "insulin", type: "excitatory", label: "triggers", cite: "openstax_ap|Ch 17.9: The Endocrine Pancreas" },
+  { source: "eating", target: "dopamine", type: "excitatory", label: "palatability", cite: "uth|S1 Ch 12: Biogenic Amines" },
+  { source: "eating", target: "serotonin", type: "excitatory", label: "tryptophan", cite: "uth|S1 Ch 12: Biogenic Amines" },
+  { source: "eating", target: "histamine", type: "excitatory", label: "gut release", cite: "uth|S1 Ch 12: Biogenic Amines" },
   // Feedback: dopamine/serotonin regulate appetite
-  { source: "serotonin", target: "eating", type: "inhibitory", label: "satiety signal" },
+  { source: "serotonin", target: "eating", type: "inhibitory", label: "satiety signal", cite: "uth|S4 Ch 4: Central Control of Feeding" },
 
   // Sex
-  { source: "sex", target: "dopamine", type: "excitatory", label: "arousal ramp" },
-  { source: "sex", target: "oxytocin", type: "excitatory", label: "orgasm release" },
-  { source: "sex", target: "endorphins", type: "excitatory", label: "releases" },
-  { source: "sex", target: "prolactin", type: "excitatory", label: "post-orgasm" },
-  { source: "sex", target: "vasopressin", type: "excitatory", label: "pair bonding" },
+  { source: "sex", target: "dopamine", type: "excitatory", label: "arousal ramp", cite: "uth|S1 Ch 12: Biogenic Amines" },
+  { source: "sex", target: "oxytocin", type: "excitatory", label: "orgasm release", cite: "openstax_ap|Ch 17.3: The Pituitary Gland" },
+  { source: "sex", target: "endorphins", type: "excitatory", label: "releases", cite: "purves|Ch 6: Neurotransmitters" },
+  { source: "sex", target: "prolactin", type: "excitatory", label: "post-orgasm", cite: "openstax_ap|Ch 17.3: The Pituitary Gland" },
+  { source: "sex", target: "vasopressin", type: "excitatory", label: "pair bonding", cite: "openstax_ap|Ch 17.3: The Pituitary Gland" },
 
   // Music
-  { source: "music", target: "dopamine", type: "excitatory", label: "reward prediction" },
-  { source: "music", target: "endorphins", type: "excitatory", label: "releases" },
-  { source: "music", target: "cortisol", type: "inhibitory", label: "reduces" },
+  { source: "music", target: "dopamine", type: "excitatory", label: "reward prediction", cite: "uth|S1 Ch 12: Biogenic Amines" },
+  { source: "music", target: "endorphins", type: "excitatory", label: "releases", cite: "purves|Ch 6: Neurotransmitters" },
+  { source: "music", target: "cortisol", type: "inhibitory", label: "reduces", cite: "openstax_ap|Ch 17.6: The Adrenal Glands" },
 
   // Chronic stress
-  { source: "stress", target: "crh", type: "excitatory", label: "activates HPA" },
-  { source: "stress", target: "cortisol", type: "excitatory", label: "elevates" },
-  { source: "stress", target: "norepinephrine", type: "excitatory", label: "elevates" },
-  { source: "stress", target: "adrenaline", type: "excitatory", label: "triggers" },
-  { source: "stress", target: "serotonin", type: "inhibitory", label: "depletes" },
-  { source: "stress", target: "dopamine", type: "inhibitory", label: "blunts" },
-  { source: "stress", target: "bdnf", type: "inhibitory", label: "suppresses" },
-  { source: "stress", target: "dynorphin", type: "excitatory", label: "dysphoria" },
-  { source: "stress", target: "histamine", type: "excitatory", label: "immune ↑" },
+  { source: "stress", target: "crh", type: "excitatory", label: "activates HPA", cite: "openstax_ap|Ch 17.6: The Adrenal Glands" },
+  { source: "stress", target: "cortisol", type: "excitatory", label: "elevates", cite: "openstax_ap|Ch 17.6: The Adrenal Glands" },
+  { source: "stress", target: "norepinephrine", type: "excitatory", label: "elevates", cite: "openstax_ap|Ch 14: The Autonomic Nervous System" },
+  { source: "stress", target: "adrenaline", type: "excitatory", label: "triggers", cite: "openstax_ap|Ch 17.6: The Adrenal Glands" },
+  { source: "stress", target: "serotonin", type: "inhibitory", label: "depletes", cite: "uth|S1 Ch 12: Biogenic Amines" },
+  { source: "stress", target: "dopamine", type: "inhibitory", label: "blunts", cite: "uth|S1 Ch 12: Biogenic Amines" },
+  { source: "stress", target: "bdnf", type: "inhibitory", label: "suppresses", cite: "uth|S1 Ch 7: Synaptic Plasticity" },
+  { source: "stress", target: "dynorphin", type: "excitatory", label: "dysphoria", cite: "uth|S1 Ch 14: Neuropeptides" },
+  { source: "stress", target: "histamine", type: "excitatory", label: "immune ↑", cite: "uth|S1 Ch 12: Biogenic Amines" },
   // Feedback: cortisol perpetuates stress
-  { source: "cortisol", target: "stress", type: "excitatory", label: "sensitizes" },
+  { source: "cortisol", target: "stress", type: "excitatory", label: "sensitizes", cite: "openstax_ap|Ch 17.6: The Adrenal Glands" },
 
   // Breathwork
-  { source: "breathing", target: "gaba", type: "excitatory", label: "increases" },
-  { source: "breathing", target: "norepinephrine", type: "inhibitory", label: "vagal calming" },
-  { source: "breathing", target: "acetylcholine", type: "excitatory", label: "vagal tone" },
+  { source: "breathing", target: "gaba", type: "excitatory", label: "increases", cite: "purves|Ch 6: Neurotransmitters" },
+  { source: "breathing", target: "norepinephrine", type: "inhibitory", label: "vagal calming", cite: "openstax_ap|Ch 14: The Autonomic Nervous System" },
+  { source: "breathing", target: "acetylcholine", type: "excitatory", label: "vagal tone", cite: "openstax_ap|Ch 14: The Autonomic Nervous System" },
 
   // Caffeine
-  { source: "caffeine", target: "adenosine", type: "inhibitory", label: "blocks A1/A2A" },
-  { source: "caffeine", target: "dopamine", type: "excitatory", label: "disinhibits" },
-  { source: "caffeine", target: "norepinephrine", type: "excitatory", label: "increases" },
-  { source: "caffeine", target: "cortisol", type: "excitatory", label: "elevates" },
-  { source: "caffeine", target: "adrenaline", type: "excitatory", label: "triggers" },
+  { source: "caffeine", target: "adenosine", type: "inhibitory", label: "blocks A1/A2A", cite: "purves|Ch 6: Neurotransmitters" },
+  { source: "caffeine", target: "dopamine", type: "excitatory", label: "disinhibits", cite: "uth|S1 Ch 12: Biogenic Amines" },
+  { source: "caffeine", target: "norepinephrine", type: "excitatory", label: "increases", cite: "uth|S1 Ch 12: Biogenic Amines" },
+  { source: "caffeine", target: "cortisol", type: "excitatory", label: "elevates", cite: "openstax_ap|Ch 17.6: The Adrenal Glands" },
+  { source: "caffeine", target: "adrenaline", type: "excitatory", label: "triggers", cite: "openstax_ap|Ch 17.6: The Adrenal Glands" },
 
   // Alcohol
-  { source: "alcohol", target: "gabaa_r", type: "excitatory", label: "potentiates" },
-  { source: "alcohol", target: "gaba", type: "excitatory", label: "enhances" },
-  { source: "alcohol", target: "glutamate", type: "inhibitory", label: "suppresses" },
-  { source: "alcohol", target: "dopamine", type: "excitatory", label: "acute release" },
-  { source: "alcohol", target: "endorphins", type: "excitatory", label: "releases" },
-  { source: "alcohol", target: "cortisol", type: "excitatory", label: "elevates" },
-  { source: "alcohol", target: "serotonin", type: "modulatory", label: "acute↑ chronic↓" },
+  { source: "alcohol", target: "gabaa_r", type: "excitatory", label: "potentiates", cite: "purves|Ch 7: Neurotransmitter Receptors" },
+  { source: "alcohol", target: "gaba", type: "excitatory", label: "enhances", cite: "purves|Ch 6: Neurotransmitters" },
+  { source: "alcohol", target: "glutamate", type: "inhibitory", label: "suppresses", cite: "purves|Ch 6: Neurotransmitters" },
+  { source: "alcohol", target: "dopamine", type: "excitatory", label: "acute release", cite: "uth|S1 Ch 12: Biogenic Amines" },
+  { source: "alcohol", target: "endorphins", type: "excitatory", label: "releases", cite: "purves|Ch 6: Neurotransmitters" },
+  { source: "alcohol", target: "cortisol", type: "excitatory", label: "elevates", cite: "openstax_ap|Ch 17.6: The Adrenal Glands" },
+  { source: "alcohol", target: "serotonin", type: "modulatory", label: "acute↑ chronic↓", cite: "uth|S1 Ch 12: Biogenic Amines" },
 
   // ═══ BIOCHEMICAL CONVERSIONS ═══
-  { source: "serotonin", target: "melatonin", type: "converts", label: "NAT + HIOMT" },
-  { source: "dopamine", target: "norepinephrine", type: "converts", label: "DβH enzyme" },
-  { source: "norepinephrine", target: "adrenaline", type: "converts", label: "PNMT enzyme" },
-  { source: "glutamate", target: "gaba", type: "converts", label: "GAD enzyme" },
-  { source: "crh", target: "cortisol", type: "converts", label: "HPA cascade" },
+  { source: "serotonin", target: "melatonin", type: "converts", label: "NAT + HIOMT", cite: "uth|S1 Ch 12: Biogenic Amines" },
+  { source: "dopamine", target: "norepinephrine", type: "converts", label: "DβH enzyme", cite: "uth|S1 Ch 12: Biogenic Amines" },
+  { source: "norepinephrine", target: "adrenaline", type: "converts", label: "PNMT enzyme", cite: "uth|S1 Ch 12: Biogenic Amines" },
+  { source: "glutamate", target: "gaba", type: "converts", label: "GAD enzyme", cite: "uth|S1 Ch 13: Amino Acid Neurotransmitters" },
+  { source: "crh", target: "cortisol", type: "converts", label: "HPA cascade", cite: "openstax_ap|Ch 17.6: The Adrenal Glands" },
 
   // ═══ HORMONE → NEUROTRANSMITTER ═══
-  { source: "cortisol", target: "serotonin", type: "inhibitory", label: "suppresses" },
-  { source: "cortisol", target: "dopamine", type: "inhibitory", label: "impairs" },
-  { source: "cortisol", target: "gaba", type: "inhibitory", label: "reduces" },
-  { source: "cortisol", target: "glutamate", type: "excitatory", label: "excitotoxicity" },
-  { source: "cortisol", target: "bdnf", type: "inhibitory", label: "suppresses" },
-  { source: "cortisol", target: "acetylcholine", type: "inhibitory", label: "impairs" },
+  { source: "cortisol", target: "serotonin", type: "inhibitory", label: "suppresses", cite: "openstax_ap|Ch 17.6: The Adrenal Glands" },
+  { source: "cortisol", target: "dopamine", type: "inhibitory", label: "impairs", cite: "openstax_ap|Ch 17.6: The Adrenal Glands" },
+  { source: "cortisol", target: "gaba", type: "inhibitory", label: "reduces", cite: "openstax_ap|Ch 17.6: The Adrenal Glands" },
+  { source: "cortisol", target: "glutamate", type: "excitatory", label: "excitotoxicity", cite: "purves|Ch 6: Neurotransmitters" },
+  { source: "cortisol", target: "bdnf", type: "inhibitory", label: "suppresses", cite: "uth|S1 Ch 7: Synaptic Plasticity" },
+  { source: "cortisol", target: "acetylcholine", type: "inhibitory", label: "impairs", cite: "uth|S1 Ch 11: Acetylcholine" },
   
-  { source: "testosterone", target: "dopamine", type: "excitatory", label: "receptor density" },
-  { source: "testosterone", target: "vasopressin", type: "excitatory", label: "enhances" },
+  { source: "testosterone", target: "dopamine", type: "excitatory", label: "receptor density", cite: "openstax_ap|Ch 17.8: Gonadal Hormones" },
+  { source: "testosterone", target: "vasopressin", type: "excitatory", label: "enhances", cite: "openstax_ap|Ch 17.8: Gonadal Hormones" },
   
-  { source: "estrogen", target: "serotonin", type: "excitatory", label: "upregulates 5-HT" },
-  { source: "estrogen", target: "dopamine", type: "modulatory", label: "modulates D2" },
-  { source: "estrogen", target: "bdnf", type: "excitatory", label: "potentiates" },
-  { source: "estrogen", target: "acetylcholine", type: "excitatory", label: "enhances" },
-  { source: "estrogen", target: "gaba", type: "modulatory", label: "neurosteroid" },
+  { source: "estrogen", target: "serotonin", type: "excitatory", label: "upregulates 5-HT", cite: "openstax_ap|Ch 17.8: Gonadal Hormones" },
+  { source: "estrogen", target: "dopamine", type: "modulatory", label: "modulates D2", cite: "openstax_ap|Ch 17.8: Gonadal Hormones" },
+  { source: "estrogen", target: "bdnf", type: "excitatory", label: "potentiates", cite: "openstax_ap|Ch 17.8: Gonadal Hormones" },
+  { source: "estrogen", target: "acetylcholine", type: "excitatory", label: "enhances", cite: "openstax_ap|Ch 17.8: Gonadal Hormones" },
+  { source: "estrogen", target: "gaba", type: "modulatory", label: "neurosteroid", cite: "openstax_ap|Ch 17.8: Gonadal Hormones" },
 
-  { source: "oxytocin", target: "serotonin", type: "excitatory", label: "enhances" },
-  { source: "oxytocin", target: "dopamine", type: "excitatory", label: "VTA pathway" },
-  { source: "oxytocin", target: "cortisol", type: "inhibitory", label: "buffers stress" },
-  { source: "oxytocin", target: "gaba", type: "excitatory", label: "anxiolytic" },
+  { source: "oxytocin", target: "serotonin", type: "excitatory", label: "enhances", cite: "openstax_ap|Ch 17.3: The Pituitary Gland" },
+  { source: "oxytocin", target: "dopamine", type: "excitatory", label: "VTA pathway", cite: "openstax_ap|Ch 17.3: The Pituitary Gland" },
+  { source: "oxytocin", target: "cortisol", type: "inhibitory", label: "buffers stress", cite: "openstax_ap|Ch 17.3: The Pituitary Gland" },
+  { source: "oxytocin", target: "gaba", type: "excitatory", label: "anxiolytic", cite: "openstax_ap|Ch 17.3: The Pituitary Gland" },
 
-  { source: "vasopressin", target: "cortisol", type: "excitatory", label: "HPA potentiation" },
-  { source: "vasopressin", target: "norepinephrine", type: "excitatory", label: "arousal" },
+  { source: "vasopressin", target: "cortisol", type: "excitatory", label: "HPA potentiation", cite: "openstax_ap|Ch 17.3: The Pituitary Gland" },
+  { source: "vasopressin", target: "norepinephrine", type: "excitatory", label: "arousal", cite: "openstax_ap|Ch 17.3: The Pituitary Gland" },
 
-  { source: "insulin", target: "serotonin", type: "excitatory", label: "tryptophan BBB" },
-  { source: "insulin", target: "dopamine", type: "modulatory", label: "resistance impairs" },
+  { source: "insulin", target: "serotonin", type: "excitatory", label: "tryptophan BBB", cite: "openstax_ap|Ch 17.9: The Endocrine Pancreas" },
+  { source: "insulin", target: "dopamine", type: "modulatory", label: "resistance impairs", cite: "openstax_ap|Ch 17.9: The Endocrine Pancreas" },
 
-  { source: "prolactin", target: "dopamine", type: "inhibitory", label: "suppresses" },
+  { source: "prolactin", target: "dopamine", type: "inhibitory", label: "suppresses", cite: "openstax_ap|Ch 17.3: The Pituitary Gland" },
   // Feedback: dopamine tonically suppresses prolactin
-  { source: "dopamine", target: "prolactin", type: "inhibitory", label: "tonic inhibition" },
+  { source: "dopamine", target: "prolactin", type: "inhibitory", label: "tonic inhibition", cite: "openstax_ap|Ch 17.3: The Pituitary Gland" },
 
-  { source: "thyroid", target: "dopamine", type: "excitatory", label: "receptor sensitivity" },
-  { source: "thyroid", target: "serotonin", type: "excitatory", label: "receptor sensitivity" },
-  { source: "thyroid", target: "norepinephrine", type: "excitatory", label: "potentiates" },
-  { source: "thyroid", target: "gaba", type: "modulatory", label: "modulates" },
+  { source: "thyroid", target: "dopamine", type: "excitatory", label: "receptor sensitivity", cite: "openstax_ap|Ch 17.4: The Thyroid Gland" },
+  { source: "thyroid", target: "serotonin", type: "excitatory", label: "receptor sensitivity", cite: "openstax_ap|Ch 17.4: The Thyroid Gland" },
+  { source: "thyroid", target: "norepinephrine", type: "excitatory", label: "potentiates", cite: "openstax_ap|Ch 17.4: The Thyroid Gland" },
+  { source: "thyroid", target: "gaba", type: "modulatory", label: "modulates", cite: "openstax_ap|Ch 17.4: The Thyroid Gland" },
 
-  { source: "bdnf", target: "glutamate", type: "excitatory", label: "LTP support" },
-  { source: "bdnf", target: "serotonin", type: "excitatory", label: "neurogenesis" },
-  { source: "bdnf", target: "dopamine", type: "excitatory", label: "neuron survival" },
-  { source: "bdnf", target: "gaba", type: "excitatory", label: "interneuron health" },
+  { source: "bdnf", target: "glutamate", type: "excitatory", label: "LTP support", cite: "uth|S1 Ch 7: Synaptic Plasticity" },
+  { source: "bdnf", target: "serotonin", type: "excitatory", label: "neurogenesis", cite: "uth|S1 Ch 7: Synaptic Plasticity" },
+  { source: "bdnf", target: "dopamine", type: "excitatory", label: "neuron survival", cite: "uth|S1 Ch 7: Synaptic Plasticity" },
+  { source: "bdnf", target: "gaba", type: "excitatory", label: "interneuron health", cite: "uth|S1 Ch 7: Synaptic Plasticity" },
 
-  { source: "melatonin", target: "gaba", type: "excitatory", label: "enhances" },
-  { source: "melatonin", target: "dopamine", type: "inhibitory", label: "suppresses" },
-  { source: "melatonin", target: "cortisol", type: "inhibitory", label: "counterphase" },
+  { source: "melatonin", target: "gaba", type: "excitatory", label: "enhances", cite: "openstax_ap|Ch 17.7: The Pineal Gland" },
+  { source: "melatonin", target: "dopamine", type: "inhibitory", label: "suppresses", cite: "openstax_ap|Ch 17.7: The Pineal Gland" },
+  { source: "melatonin", target: "cortisol", type: "inhibitory", label: "counterphase", cite: "openstax_ap|Ch 17.7: The Pineal Gland" },
 
   // ═══ NEUROTRANSMITTER → RECEPTOR ═══
-  { source: "endorphins", target: "opioid_r", type: "excitatory", label: "μ/δ agonist" },
-  { source: "dynorphin", target: "opioid_r", type: "modulatory", label: "κ agonist" },
-  { source: "substanceP", target: "opioid_r", type: "modulatory", label: "pain gating" },
-  { source: "anandamide", target: "cb1_r", type: "excitatory", label: "partial agonist" },
-  { source: "glutamate", target: "nmda_r", type: "excitatory", label: "co-agonist" },
-  { source: "gaba", target: "gabaa_r", type: "excitatory", label: "Cl⁻ channel" },
+  { source: "endorphins", target: "opioid_r", type: "excitatory", label: "μ/δ agonist", cite: "purves|Ch 6: Neurotransmitters" },
+  { source: "dynorphin", target: "opioid_r", type: "modulatory", label: "κ agonist", cite: "purves|Ch 6: Neurotransmitters" },
+  { source: "substanceP", target: "opioid_r", type: "modulatory", label: "pain gating", cite: "purves|Ch 10: Pain" },
+  { source: "anandamide", target: "cb1_r", type: "excitatory", label: "partial agonist", cite: "purves|Ch 6: Neurotransmitters" },
+  { source: "glutamate", target: "nmda_r", type: "excitatory", label: "co-agonist", cite: "purves|Ch 7: Neurotransmitter Receptors" },
+  { source: "gaba", target: "gabaa_r", type: "excitatory", label: "Cl⁻ channel", cite: "purves|Ch 7: Neurotransmitter Receptors" },
 
   // ═══ RECEPTOR → DOWNSTREAM ═══
-  { source: "opioid_r", target: "dopamine", type: "excitatory", label: "VTA disinhibition" },
-  { source: "opioid_r", target: "gaba", type: "inhibitory", label: "interneuron inhibition" },
-  { source: "opioid_r", target: "substanceP", type: "inhibitory", label: "pain suppression" },
+  { source: "opioid_r", target: "dopamine", type: "excitatory", label: "VTA disinhibition", cite: "purves|Ch 7: Neurotransmitter Receptors" },
+  { source: "opioid_r", target: "gaba", type: "inhibitory", label: "interneuron inhibition", cite: "purves|Ch 7: Neurotransmitter Receptors" },
+  { source: "opioid_r", target: "substanceP", type: "inhibitory", label: "pain suppression", cite: "purves|Ch 10: Pain" },
 
-  { source: "cb1_r", target: "gaba", type: "inhibitory", label: "presynaptic" },
-  { source: "cb1_r", target: "glutamate", type: "inhibitory", label: "presynaptic" },
-  { source: "cb1_r", target: "dopamine", type: "modulatory", label: "indirect" },
+  { source: "cb1_r", target: "gaba", type: "inhibitory", label: "presynaptic", cite: "purves|Ch 7: Neurotransmitter Receptors" },
+  { source: "cb1_r", target: "glutamate", type: "inhibitory", label: "presynaptic", cite: "purves|Ch 7: Neurotransmitter Receptors" },
+  { source: "cb1_r", target: "dopamine", type: "modulatory", label: "indirect", cite: "purves|Ch 7: Neurotransmitter Receptors" },
 
-  { source: "nmda_r", target: "bdnf", type: "excitatory", label: "Ca²⁺ → CREB" },
+  { source: "nmda_r", target: "bdnf", type: "excitatory", label: "Ca²⁺ → CREB", cite: "uth|S1 Ch 7: Synaptic Plasticity" },
 
-  { source: "gabaa_r", target: "glutamate", type: "inhibitory", label: "network inhibition" },
-  { source: "gabaa_r", target: "norepinephrine", type: "inhibitory", label: "sedation" },
-  { source: "gabaa_r", target: "histamine", type: "inhibitory", label: "sedation" },
+  { source: "gabaa_r", target: "glutamate", type: "inhibitory", label: "network inhibition", cite: "purves|Ch 7: Neurotransmitter Receptors" },
+  { source: "gabaa_r", target: "norepinephrine", type: "inhibitory", label: "sedation", cite: "purves|Ch 7: Neurotransmitter Receptors" },
+  { source: "gabaa_r", target: "histamine", type: "inhibitory", label: "sedation", cite: "purves|Ch 7: Neurotransmitter Receptors" },
 
   // ═══ NEUROTRANSMITTER CROSS-TALK ═══
-  { source: "gaba", target: "dopamine", type: "inhibitory", label: "VTA inhibition" },
-  { source: "serotonin", target: "dopamine", type: "inhibitory", label: "DRN → VTA" },
-  { source: "dopamine", target: "serotonin", type: "modulatory", label: "reciprocal" },
-  { source: "acetylcholine", target: "dopamine", type: "excitatory", label: "striatal mod" },
-  { source: "dopamine", target: "dynorphin", type: "excitatory", label: "rebound signal" },
-  { source: "dopamine", target: "acetylcholine", type: "inhibitory", label: "D2 suppression" },
-  { source: "histamine", target: "acetylcholine", type: "excitatory", label: "cortical arousal" },
-  { source: "histamine", target: "norepinephrine", type: "excitatory", label: "wakefulness" },
-  { source: "adenosine", target: "dopamine", type: "inhibitory", label: "A2A-D2 hetero" },
-  { source: "adenosine", target: "glutamate", type: "inhibitory", label: "presynaptic" },
-  { source: "adenosine", target: "acetylcholine", type: "inhibitory", label: "reduces" },
-  { source: "adenosine", target: "histamine", type: "inhibitory", label: "sleep drive" },
-  { source: "norepinephrine", target: "acetylcholine", type: "excitatory", label: "arousal" },
+  { source: "gaba", target: "dopamine", type: "inhibitory", label: "VTA inhibition", cite: "purves|Ch 6: Neurotransmitters" },
+  { source: "serotonin", target: "dopamine", type: "inhibitory", label: "DRN → VTA", cite: "uth|S1 Ch 12: Biogenic Amines" },
+  { source: "dopamine", target: "serotonin", type: "modulatory", label: "reciprocal", cite: "uth|S1 Ch 12: Biogenic Amines" },
+  { source: "acetylcholine", target: "dopamine", type: "excitatory", label: "striatal mod", cite: "uth|S1 Ch 11: Acetylcholine" },
+  { source: "dopamine", target: "dynorphin", type: "excitatory", label: "rebound signal", cite: "uth|S1 Ch 14: Neuropeptides" },
+  { source: "dopamine", target: "acetylcholine", type: "inhibitory", label: "D2 suppression", cite: "uth|S1 Ch 12: Biogenic Amines" },
+  { source: "histamine", target: "acetylcholine", type: "excitatory", label: "cortical arousal", cite: "uth|S1 Ch 12: Biogenic Amines" },
+  { source: "histamine", target: "norepinephrine", type: "excitatory", label: "wakefulness", cite: "uth|S1 Ch 12: Biogenic Amines" },
+  { source: "adenosine", target: "dopamine", type: "inhibitory", label: "A2A-D2 hetero", cite: "purves|Ch 6: Neurotransmitters" },
+  { source: "adenosine", target: "glutamate", type: "inhibitory", label: "presynaptic", cite: "purves|Ch 6: Neurotransmitters" },
+  { source: "adenosine", target: "acetylcholine", type: "inhibitory", label: "reduces", cite: "purves|Ch 6: Neurotransmitters" },
+  { source: "adenosine", target: "histamine", type: "inhibitory", label: "sleep drive", cite: "purves|Ch 6: Neurotransmitters" },
+  { source: "norepinephrine", target: "acetylcholine", type: "excitatory", label: "arousal", cite: "uth|S1 Ch 12: Biogenic Amines" },
 ];
 
 // ═══════════════════════════════════════════════
@@ -750,7 +839,7 @@ simulation.on("tick", () => {
 const totalEdges = edges.length;
 const biEdges = Object.keys(hasBidirectional).length / 2;
 document.getElementById("info-panel").innerHTML =
-  `${nodes.length} nodes · ${totalEdges} connections<br>${Math.round(biEdges)} bidirectional pairs`;
+  `${nodes.length} nodes · ${totalEdges} cited connections<br>${Math.round(biEdges)} bidirectional pairs`;
 
 // Filter controls
 let activeFilter = "all";
@@ -759,6 +848,7 @@ d3.selectAll(".ctrl-btn").on("click", function() {
   d3.select(this).classed("active", true);
   activeFilter = this.dataset.filter;
   link.attr("display", d => (activeFilter === "all" || d.type === activeFilter) ? "block" : "none");
+  linkHitArea.attr("display", d => (activeFilter === "all" || d.type === activeFilter) ? "block" : "none");
 });
 
 // Legend type highlight
@@ -780,6 +870,66 @@ window.addEventListener("resize", () => {
   svg.attr("width",w).attr("height",h);
   simulation.force("center", d3.forceCenter(w/2,h/2)).alpha(0.1).restart();
 });
+
+// ═══════════════════════════════════════════════
+// EDGE TOOLTIP & SOURCES
+// ═══════════════════════════════════════════════
+
+const edgeTooltip = d3.select("#edge-tooltip");
+
+// Wider invisible hit area for edges
+const linkHitArea = linkG.selectAll("path.hit-area")
+  .data(edges)
+  .enter().append("path")
+  .attr("fill", "none")
+  .attr("stroke", "transparent")
+  .attr("stroke-width", 14)
+  .attr("pointer-events", "stroke")
+  .attr("cursor", "pointer");
+
+linkHitArea.on("mouseenter", (event, d) => {
+  if (!d.cite) return;
+  const [bookKey, chapter] = d.cite.split("|");
+  const book = textbooks[bookKey];
+  if (!book) return;
+
+  const srcLabel = (typeof d.source === "object" ? d.source.label || d.source.id : d.source).replace(/\n/g, " ");
+  const tgtLabel = (typeof d.target === "object" ? d.target.label || d.target.id : d.target).replace(/\n/g, " ");
+
+  edgeTooltip.style("display", "block")
+    .style("left", (event.clientX + 14) + "px")
+    .style("top", (event.clientY - 10) + "px");
+  edgeTooltip.select(".et-label").text(`${srcLabel} → ${tgtLabel}: ${d.label}`)
+    .style("color", edgeColors[d.type].hi);
+  edgeTooltip.select(".et-source").text(chapter);
+  edgeTooltip.select(".et-book").text(book.short);
+})
+.on("mousemove", event => {
+  edgeTooltip.style("left", (event.clientX + 14) + "px")
+    .style("top", (event.clientY - 10) + "px");
+})
+.on("mouseleave", () => {
+  edgeTooltip.style("display", "none");
+});
+
+// Update hit area paths on tick
+simulation.on("tick.hitarea", () => {
+  linkHitArea.attr("d", linkPath);
+});
+
+// Populate sources panel
+const spList = document.querySelector("#sources-panel .sp-list");
+Object.values(textbooks).forEach(book => {
+  const item = document.createElement("div");
+  item.className = "sp-item";
+  item.innerHTML = `<a href="${book.url}" target="_blank" rel="noopener">${book.short}</a> — ${book.license}`;
+  spList.appendChild(item);
+});
+
+document.querySelector("#sources-panel .sp-title").addEventListener("click", () => {
+  spList.classList.toggle("open");
+});
+
 </script>
 </body>
 </html>
