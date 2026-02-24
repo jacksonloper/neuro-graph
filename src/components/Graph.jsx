@@ -276,37 +276,6 @@ export default function Graph() {
     document.getElementById("info-panel").innerHTML =
       `${nodes.length} nodes · ${totalEdges} cited connections<br>${Math.round(biEdges)} bidirectional pairs`;
 
-    // Filter controls
-    let activeFilter = "all";
-    d3.selectAll(".ctrl-btn").on("click", function() {
-      d3.selectAll(".ctrl-btn").classed("active", false);
-      d3.select(this).classed("active", true);
-      activeFilter = this.dataset.filter;
-      link.attr("display", d => (activeFilter === "all" || d.type === activeFilter) ? "block" : "none");
-      linkHitArea.attr("display", d => (activeFilter === "all" || d.type === activeFilter) ? "block" : "none");
-    });
-
-    // Legend type highlight
-    d3.selectAll(".legend-item").on("click", function() {
-      const type = this.dataset.type;
-      node.select(".main-circle").transition().duration(300).attr("opacity", d => d.type===type ? 1 : 0.08);
-      node.selectAll("text").transition().duration(300).attr("opacity", function() {
-        return d3.select(this.parentNode).datum().type===type ? 1 : 0.08;
-      });
-      setTimeout(() => {
-        node.select(".main-circle").transition().duration(500).delay(2500).attr("opacity",1);
-        node.selectAll("text").transition().duration(500).delay(2500).attr("opacity",1);
-      }, 0);
-    });
-
-    // Resize
-    const handleResize = () => {
-      const w = window.innerWidth, h = window.innerHeight;
-      svg.attr("width",w).attr("height",h);
-      simulation.force("center", d3.forceCenter(w/2,h/2)).alpha(0.1).restart();
-    };
-    window.addEventListener("resize", handleResize);
-
     // ═══════════════════════════════════════════════
     // EDGE TOOLTIP & SOURCES
     // ═══════════════════════════════════════════════
@@ -352,6 +321,37 @@ export default function Graph() {
     simulation.on("tick.hitarea", () => {
       linkHitArea.attr("d", linkPath);
     });
+
+    // Filter controls
+    let activeFilter = "all";
+    d3.selectAll(".ctrl-btn").on("click", function() {
+      d3.selectAll(".ctrl-btn").classed("active", false);
+      d3.select(this).classed("active", true);
+      activeFilter = this.dataset.filter;
+      link.attr("display", d => (activeFilter === "all" || d.type === activeFilter) ? "block" : "none");
+      linkHitArea.attr("display", d => (activeFilter === "all" || d.type === activeFilter) ? "block" : "none");
+    });
+
+    // Legend type highlight
+    d3.selectAll(".legend-item").on("click", function() {
+      const type = this.dataset.type;
+      node.select(".main-circle").transition().duration(300).attr("opacity", d => d.type===type ? 1 : 0.08);
+      node.selectAll("text").transition().duration(300).attr("opacity", function() {
+        return d3.select(this.parentNode).datum().type===type ? 1 : 0.08;
+      });
+      setTimeout(() => {
+        node.select(".main-circle").transition().duration(500).delay(2500).attr("opacity",1);
+        node.selectAll("text").transition().duration(500).delay(2500).attr("opacity",1);
+      }, 0);
+    });
+
+    // Resize
+    const handleResize = () => {
+      const w = window.innerWidth, h = window.innerHeight;
+      svg.attr("width",w).attr("height",h);
+      simulation.force("center", d3.forceCenter(w/2,h/2)).alpha(0.1).restart();
+    };
+    window.addEventListener("resize", handleResize);
 
     // Populate sources panel
     const spList = document.querySelector("#sources-panel .sp-list");
