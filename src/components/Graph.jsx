@@ -271,6 +271,7 @@ export default function Graph() {
 
     // Update stats
     const totalEdges = edges.length;
+    // Each bidirectional pair is recorded twice (A→B and B→A), so divide by 2
     const biEdges = Object.keys(hasBidirectional).length / 2;
     document.getElementById("info-panel").innerHTML =
       `${nodes.length} nodes · ${totalEdges} cited connections<br>${Math.round(biEdges)} bidirectional pairs`;
@@ -366,10 +367,11 @@ export default function Graph() {
       const isOpen = spList.classList.toggle("open");
       spTitle.setAttribute("aria-expanded", isOpen);
     }
-    spTitle.addEventListener("click", toggleSources);
-    spTitle.addEventListener("keydown", (e) => {
+    const handleSpKeydown = (e) => {
       if (e.key === "Enter" || e.key === " ") { e.preventDefault(); toggleSources(); }
-    });
+    };
+    spTitle.addEventListener("click", toggleSources);
+    spTitle.addEventListener("keydown", handleSpKeydown);
 
     // Cleanup
     return () => {
@@ -378,7 +380,7 @@ export default function Graph() {
       window.removeEventListener("resize", handleResize);
       if (spTitle) {
         spTitle.removeEventListener("click", toggleSources);
-        spTitle.removeEventListener("keydown", toggleSources);
+        spTitle.removeEventListener("keydown", handleSpKeydown);
       }
     };
   }, []);
